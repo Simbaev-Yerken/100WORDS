@@ -1,8 +1,7 @@
 <!doctype html>
 <html lang="ru" class="h-full">
  <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CVB6DYS62P"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVB6DYS62P"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -52,25 +51,20 @@
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full bg-gradient-to-br from-orange-50 via-white to-orange-100">
-  <div id="app" class="min-h-full w-full"><!-- Header -->
-   <header class="foxy-gradient text-white py-4 px-6 sticky top-0 z-50 shadow-lg">
+  <div id="app" class="min-h-full w-full"><header class="foxy-gradient text-white py-4 px-6 sticky top-0 z-50 shadow-lg">
     <div class="max-w-6xl mx-auto flex items-center justify-between flex-wrap gap-4">
      <div class="flex items-center gap-3">
       <div class="text-4xl float">
        🦊
       </div>
       <h1 id="site-title" class="text-2xl md:text-3xl font-black">Foxy English</h1>
-     </div><!-- Language Selector -->
-     <div class="flex items-center gap-2 bg-white/20 rounded-full px-4 py-2"><button onclick="setLanguage('ru')" class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition hover:bg-white/30" data-lang="ru">🇷🇺 RU</button> <button onclick="setLanguage('kz')" class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition hover:bg-white/30" data-lang="kz">🇰🇿 KZ</button> <button onclick="setLanguage('en')" class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition hover:bg-white/30" data-lang="en">🇬🇧 EN</button>
+     </div><div class="flex items-center gap-2 bg-white/20 rounded-full px-4 py-2"><button onclick="setLanguage('ru')" class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition hover:bg-white/30" data-lang="ru">🇷🇺 RU</button> <button onclick="setLanguage('kz')" class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition hover:bg-white/30" data-lang="kz">🇰🇿 KZ</button> <button onclick="setLanguage('en')" class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition hover:bg-white/30" data-lang="en">🇬🇧 EN</button>
      </div>
     </div>
-   </header><!-- Navigation -->
-   <nav class="bg-white shadow-md sticky top-16 z-40">
+   </header><nav class="bg-white shadow-md sticky top-16 z-40">
     <div class="max-w-6xl mx-auto flex overflow-x-auto"><button onclick="showSection('home')" class="nav-btn tab-active flex-1 min-w-max px-6 py-4 font-bold text-orange-600 hover:bg-orange-50 transition" data-section="home"> <span class="text-xl">🏠</span> <span data-text="home">Главная</span> </button> <button onclick="showSection('games')" class="nav-btn flex-1 min-w-max px-6 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="games"> <span class="text-xl">🎮</span> <span data-text="games">Игры</span> </button> <button onclick="showSection('dictionary')" class="nav-btn flex-1 min-w-max px-6 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="dictionary"> <span class="text-xl">📚</span> <span data-text="dictionary">Словарь</span> </button> <button onclick="showSection('translator')" class="nav-btn flex-1 min-w-max px-6 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="translator"> <span class="text-xl">🔄</span> <span data-text="translator">Переводчик</span> </button>
     </div>
-   </nav><!-- Main Content -->
-   <main class="max-w-6xl mx-auto p-6"><!-- Home Section -->
-    <section id="section-home" class="section">
+   </nav><main class="max-w-6xl mx-auto p-6"><section id="section-home" class="section">
      <div class="text-center mb-12">
       <div class="text-8xl mb-6 float">
        🦊
@@ -100,8 +94,7 @@
        <h3 class="text-2xl font-bold text-orange-600 mb-2" data-text="translate">Переводить</h3>
        <p class="text-gray-500" data-text="translate_desc">Быстрый перевод</p>
       </div>
-     </div><!-- Stats -->
-     <div class="bg-gradient-to-r from-orange-400 to-orange-500 rounded-3xl p-8 text-white text-center">
+     </div><div class="bg-gradient-to-r from-orange-400 to-orange-500 rounded-3xl p-8 text-white text-center">
       <h3 class="text-2xl font-bold mb-6" data-text="your_progress">Твой прогресс</h3>
       <div class="flex justify-center gap-12 flex-wrap">
        <div>
@@ -130,8 +123,7 @@
        </div>
       </div>
      </div>
-    </section><!-- Games Section -->
-    <section id="section-games" class="section hidden">
+    </section><section id="section-games" class="section hidden">
      <h2 class="text-3xl font-black text-orange-600 mb-8 text-center" data-text="choose_game">Выбери игру!</h2>
      <div id="games-menu" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div class="bg-white rounded-3xl p-6 card-shadow game-card transition-all cursor-pointer hover:border-4 hover:border-orange-400" onclick="startGame('emoji')">
@@ -176,8 +168,7 @@
        <h3 class="text-xl font-bold text-orange-600 mb-2" data-text="game_listening">Угадай слово</h3>
        <p class="text-gray-500 text-sm" data-text="game_listening_desc">Посмотри на картинку и выбери слово</p>
       </div>
-     </div><!-- Game Area -->
-     <div id="game-area" class="hidden">
+     </div><div id="game-area" class="hidden">
       <div class="flex items-center justify-between mb-6"><button onclick="exitGame()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-full font-bold transition"> ← <span data-text="back">Назад</span> </button>
        <div class="flex items-center gap-4">
         <div class="bg-orange-100 px-4 py-2 rounded-full"><span data-text="score">Очки</span>: <span id="game-score" class="font-bold text-orange-600">0</span>
@@ -186,20 +177,13 @@
         </div>
        </div>
       </div>
-      <div id="game-content" class="bg-white rounded-3xl p-8 card-shadow min-h-96"><!-- Game content loads here -->
-      </div>
+      <div id="game-content" class="bg-white rounded-3xl p-8 card-shadow min-h-96"></div>
      </div>
-    </section><!-- Dictionary Section -->
-    <section id="section-dictionary" class="section hidden">
-     <h2 class="text-3xl font-black text-orange-600 mb-6 text-center" data-text="dictionary_title">📚 Словарь - 100 слов</h2><!-- Search -->
-     <div class="mb-6"><input type="text" id="dict-search" oninput="filterDictionary()" placeholder="Поиск..." class="w-full px-6 py-4 rounded-full border-2 border-orange-200 focus:border-orange-400 focus:outline-none text-lg">
-     </div><!-- Categories -->
-     <div class="flex flex-wrap gap-2 mb-6"><button onclick="filterCategory('all')" class="cat-btn bg-orange-500 text-white px-4 py-2 rounded-full font-bold transition" data-cat="all" data-text="cat_all">Все</button> <button onclick="filterCategory('animals')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="animals" data-text="cat_animals">Животные</button> <button onclick="filterCategory('food')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="food" data-text="cat_food">Еда</button> <button onclick="filterCategory('colors')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="colors" data-text="cat_colors">Цвета</button> <button onclick="filterCategory('family')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="family" data-text="cat_family">Семья</button> <button onclick="filterCategory('body')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="body" data-text="cat_body">Тело</button> <button onclick="filterCategory('nature')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="nature" data-text="cat_nature">Природа</button> <button onclick="filterCategory('numbers')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="numbers" data-text="cat_numbers">Числа</button> <button onclick="filterCategory('actions')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="actions" data-text="cat_actions">Действия</button>
-     </div><!-- Words Grid -->
-     <div id="dictionary-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"><!-- Words load here -->
-     </div>
-    </section><!-- Translator Section -->
-    <section id="section-translator" class="section hidden">
+    </section><section id="section-dictionary" class="section hidden">
+     <h2 class="text-3xl font-black text-orange-600 mb-6 text-center" data-text="dictionary_title">📚 Словарь - 100 слов</h2><div class="mb-6"><input type="text" id="dict-search" oninput="filterDictionary()" placeholder="Поиск..." class="w-full px-6 py-4 rounded-full border-2 border-orange-200 focus:border-orange-400 focus:outline-none text-lg">
+     </div><div class="flex flex-wrap gap-2 mb-6"><button onclick="filterCategory('all')" class="cat-btn bg-orange-500 text-white px-4 py-2 rounded-full font-bold transition" data-cat="all" data-text="cat_all">Все</button> <button onclick="filterCategory('animals')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="animals" data-text="cat_animals">Животные</button> <button onclick="filterCategory('food')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="food" data-text="cat_food">Еда</button> <button onclick="filterCategory('colors')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="colors" data-text="cat_colors">Цвета</button> <button onclick="filterCategory('family')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="family" data-text="cat_family">Семья</button> <button onclick="filterCategory('body')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="body" data-text="cat_body">Тело</button> <button onclick="filterCategory('nature')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="nature" data-text="cat_nature">Природа</button> <button onclick="filterCategory('numbers')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="numbers" data-text="cat_numbers">Числа</button> <button onclick="filterCategory('actions')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="actions" data-text="cat_actions">Действия</button>
+     </div><div id="dictionary-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    </section><section id="section-translator" class="section hidden">
      <h2 class="text-3xl font-black text-orange-600 mb-8 text-center" data-text="translator_title">🔄 Переводчик</h2>
      <div class="max-w-2xl mx-auto">
       <div class="bg-white rounded-3xl p-8 card-shadow">
@@ -217,7 +201,7 @@
            <div class="text-sm text-gray-500 mb-1">
             🇬🇧 English
            </div>
-           <div id="result-en" class="text-xl font-bold text-orange-600"></div>
+           <div id="result-en" translate="no" class="text-xl font-bold text-orange-600"></div>
           </div>
           <div>
            <div class="text-sm text-gray-500 mb-1">
@@ -240,16 +224,13 @@
         </div>
         <p class="text-gray-500" data-text="word_not_found">Слово не найдено в словаре</p>
        </div>
-      </div><!-- Quick Words -->
-      <div class="mt-8">
+      </div><div class="mt-8">
        <h3 class="text-xl font-bold text-gray-600 mb-4 text-center" data-text="try_these">Попробуй эти слова:</h3>
-       <div class="flex flex-wrap justify-center gap-2" id="quick-words"><!-- Quick words load here -->
-       </div>
+       <div class="flex flex-wrap justify-center gap-2" id="quick-words"></div>
       </div>
      </div>
     </section>
-   </main><!-- Footer -->
-   <footer class="bg-orange-600 text-white py-6 mt-12">
+   </main><footer class="bg-orange-600 text-white py-6 mt-12">
     <div class="max-w-6xl mx-auto px-6 text-center">
      <div class="text-3xl mb-2">
       🦊
@@ -596,7 +577,7 @@
         <div class="word-card bg-white rounded-2xl p-4 card-shadow cursor-pointer hover:bg-orange-50 transition" onclick="speakWord('${word.en}')">
           <div class="text-4xl text-center mb-2">${word.emoji}</div>
           <div class="text-center">
-            <div class="font-bold text-orange-600 text-lg">${word.en}</div>
+            <div translate="no" class="font-bold text-orange-600 text-lg">${word.en}</div>
             <div class="text-gray-500 text-sm">${word[currentLang] || word.ru}</div>
           </div>
         </div>
@@ -657,7 +638,7 @@
       const container = document.getElementById('quick-words');
       const randomWords = [...dictionary].sort(() => Math.random() - 0.5).slice(0, 8);
       container.innerHTML = randomWords.map(w => `
-        <button onclick="document.getElementById('translate-input').value='${w.en}';translateWord()" 
+        <button translate="no" onclick="document.getElementById('translate-input').value='${w.en}';translateWord()" 
           class="bg-orange-100 hover:bg-orange-200 text-orange-600 px-4 py-2 rounded-full font-bold transition">
           ${w.emoji} ${w.en}
         </button>
@@ -748,7 +729,7 @@
           <p class="text-gray-600 mb-4">${translations[currentLang].choose_word}</p>
           <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
             ${options.map(opt => `
-              <button onclick="checkAnswer('${opt.en}', '${word.en}')" 
+              <button translate="no" onclick="checkAnswer('${opt.en}', '${word.en}')" 
                 class="answer-btn bg-orange-100 hover:bg-orange-200 text-orange-600 font-bold py-4 px-6 rounded-2xl text-xl transition transform hover:scale-105">
                 ${opt.en}
               </button>
@@ -781,12 +762,12 @@
         <div class="text-center">
           <p class="text-gray-600 mb-4 text-lg">${translations[currentLang].fill_blank}</p>
           <div class="text-6xl mb-4">${word.emoji}</div>
-          <div class="text-2xl font-bold text-gray-700 mb-8 bg-orange-50 p-6 rounded-2xl">
+          <div translate="no" class="text-2xl font-bold text-gray-700 mb-8 bg-orange-50 p-6 rounded-2xl">
             ${pattern.replace('___', '<span class="text-orange-500 border-b-4 border-orange-400 px-2">?</span>')}
           </div>
           <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
             ${options.map(opt => `
-              <button onclick="checkAnswer('${opt.en}', '${word.en}')" 
+              <button translate="no" onclick="checkAnswer('${opt.en}', '${word.en}')" 
                 class="answer-btn bg-orange-100 hover:bg-orange-200 text-orange-600 font-bold py-4 px-6 rounded-2xl text-xl transition transform hover:scale-105">
                 ${opt.en}
               </button>
@@ -803,13 +784,12 @@
         <div class="text-center">
           <p class="text-gray-600 mb-4 text-lg">${translations[currentLang].build_word}</p>
           <div class="text-6xl mb-4">${word.emoji}</div>
-          <div class="text-xl text-gray-500 mb-4">${word[currentLang]}</div>
+          <div translate="no" class="text-xl text-gray-500 mb-4">${word.en}</div>
           
-          <div id="spelling-answer" class="flex justify-center gap-2 mb-6 min-h-16 p-4 bg-orange-50 rounded-2xl">
-            <!-- Selected letters appear here -->
-          </div>
+          <div id="spelling-answer" translate="no" class="flex justify-center gap-2 mb-6 min-h-16 p-4 bg-orange-50 rounded-2xl">
+            </div>
           
-          <div id="spelling-letters" class="flex justify-center gap-2 flex-wrap mb-6">
+          <div id="spelling-letters" translate="no" class="flex justify-center gap-2 flex-wrap mb-6">
             ${letters.map((letter, i) => `
               <button id="letter-${i}" onclick="selectLetter('${letter}', ${i}, '${word.en}')" 
                 class="letter-btn w-14 h-14 bg-orange-500 hover:bg-orange-600 text-white font-bold text-2xl rounded-xl transition transform hover:scale-110">
@@ -867,7 +847,7 @@
       container.innerHTML = `
         <div class="text-center">
           <p class="text-gray-600 mb-4 text-lg">${translations[currentLang].select_translation}</p>
-          <div class="text-4xl font-black text-orange-600 mb-8 bg-orange-50 p-6 rounded-2xl">
+          <div translate="no" class="text-4xl font-black text-orange-600 mb-8 bg-orange-50 p-6 rounded-2xl">
             ${word.en.toUpperCase()}
           </div>
           <div class="grid grid-cols-2 gap-4 max-w-lg mx-auto">
@@ -875,7 +855,7 @@
               <button onclick="checkAnswer('${opt.en}', '${word.en}')" 
                 class="answer-btn bg-white hover:bg-orange-50 border-2 border-orange-200 hover:border-orange-400 font-bold py-4 px-6 rounded-2xl text-lg transition transform hover:scale-105">
                 <div class="text-3xl mb-2">${opt.emoji}</div>
-                <div class="text-gray-700">${opt[currentLang]}</div>
+                <div>${opt[currentLang]}</div>
               </button>
             `).join('')}
           </div>
@@ -893,7 +873,7 @@
           <div class="text-8xl mb-8 float">${word.emoji}</div>
           <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
             ${options.map(opt => `
-              <button onclick="checkAnswer('${opt.en}', '${word.en}')" 
+              <button translate="no" onclick="checkAnswer('${opt.en}', '${word.en}')" 
                 class="answer-btn bg-orange-100 hover:bg-orange-200 text-orange-600 font-bold py-4 px-6 rounded-2xl text-xl transition transform hover:scale-105">
                 ${opt.en}
               </button>
@@ -937,7 +917,7 @@
                 <span class="text-3xl text-white">🦊</span>
               </div>
               <div class="w-full h-full bg-white border-2 border-orange-300 rounded-xl flex items-center justify-center ${card.flipped ? '' : 'hidden'}">
-                <span class="${card.type === 'emoji' ? 'text-4xl' : 'text-lg font-bold text-orange-600'}">${card.value}</span>
+                <span translate="no" class="${card.type === 'emoji' ? 'text-4xl' : 'text-lg font-bold text-orange-600'}">${card.value}</span>
               </div>
             </div>
           `).join('')}
@@ -945,6 +925,7 @@
       `;
     }
 
+    // ===== FLIP CARD =====
     function flipCard(cardId) {
       if (gameState.flippedCards.length >= 2) return;
       
