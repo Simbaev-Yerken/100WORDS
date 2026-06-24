@@ -2,19 +2,29 @@
 <html lang="ru" class="h-full">
  <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVB6DYS62P"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-CVB6DYS62P');
-</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CVB6DYS62P');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Foxy English</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="/_sdk/element_sdk.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+  
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'ru',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
   <style>
     * { font-family: 'Nunito', sans-serif; }
     .foxy-gradient { background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 50%, #FFA726 100%); }
@@ -46,203 +56,220 @@
     .progress-bar { transition: width 0.5s ease; }
     .tab-active { border-bottom: 4px solid #FF6B35; }
     html, body { height: 100%; overflow: auto; }
+    
+    .goog-te-banner-frame.skiptranslate, .skiptranslate.goog-te-gadget span, .goog-logo-link { display: none !important; }
+    body { top: 0px !important; box-sizing: border-box; }
+    .goog-te-gadget { color: transparent !important; font-size: 0 !important; }
+    
+    #google_translate_element select {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      opacity: 0 !important;
+      cursor: pointer !important;
+      transform: scale(2);
+    }
   </style>
-  <style>body { box-sizing: border-box; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full bg-gradient-to-br from-orange-50 via-white to-orange-100">
-  <div id="app" class="min-h-full w-full"><header class="foxy-gradient text-white py-4 px-6 sticky top-0 z-50 shadow-lg">
-    <div class="max-w-6xl mx-auto flex items-center justify-between flex-wrap gap-4">
+  <div id="app" class="min-h-full w-full">
+   
+   <header class="foxy-gradient text-white py-3 px-6 sticky top-0 z-50 shadow-lg">
+    <div class="max-w-6xl mx-auto flex items-center justify-between flex-wrap gap-2">
      <div class="flex items-center gap-3">
-      <div class="text-4xl float">
-       🦊
+      <img src="IMG_9271.png" alt="Foxy English" id="site-title" class="h-18 md:h-20 object-contain float">
+     </div>
+     <div class="flex items-center gap-2 bg-white/20 rounded-full px-4 py-2">
+      <button onclick="setLanguage('ru')" class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition hover:bg-white/30" data-lang="ru">🇷🇺 RU</button> 
+      <button onclick="setLanguage('kz')" class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition hover:bg-white/30" data-lang="kz">🇰🇿 KZ</button> 
+      <button onclick="setLanguage('en')" class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition hover:bg-white/30" data-lang="en">🇬🇧 EN</button>
+      
+      <span class="text-white/40">|</span>
+      
+      <div class="relative flex items-center justify-center w-8 h-7 bg-white/10 hover:bg-white/30 rounded-full transition overflow-hidden cursor-pointer">
+        <span class="text-white font-bold text-sm pointer-events-none mb-1">...</span>
+        <div id="google_translate_element" class="absolute inset-0"></div>
       </div>
-      <h1 id="site-title" class="text-2xl md:text-3xl font-black">Foxy English</h1>
-     </div><div class="flex items-center gap-2 bg-white/20 rounded-full px-4 py-2"><button onclick="setLanguage('ru')" class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition hover:bg-white/30" data-lang="ru">🇷🇺 RU</button> <button onclick="setLanguage('kz')" class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition hover:bg-white/30" data-lang="kz">🇰🇿 KZ</button> <button onclick="setLanguage('en')" class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition hover:bg-white/30" data-lang="en">🇬🇧 EN</button>
      </div>
     </div>
-   </header><nav class="bg-white shadow-md sticky top-16 z-40">
-    <div class="max-w-6xl mx-auto flex overflow-x-auto"><button onclick="showSection('home')" class="nav-btn tab-active flex-1 min-w-max px-6 py-4 font-bold text-orange-600 hover:bg-orange-50 transition" data-section="home"> <span class="text-xl">🏠</span> <span data-text="home">Главная</span> </button> <button onclick="showSection('games')" class="nav-btn flex-1 min-w-max px-6 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="games"> <span class="text-xl">🎮</span> <span data-text="games">Игры</span> </button> <button onclick="showSection('dictionary')" class="nav-btn flex-1 min-w-max px-6 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="dictionary"> <span class="text-xl">📚</span> <span data-text="dictionary">Словарь</span> </button> <button onclick="showSection('translator')" class="nav-btn flex-1 min-w-max px-6 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="translator"> <span class="text-xl">🔄</span> <span data-text="translator">Переводчик</span> </button>
+   </header>
+
+   <nav class="bg-white shadow-md sticky top-16 z-40">
+    <div class="max-w-6xl mx-auto flex overflow-x-auto">
+     <button onclick="showSection('home')" class="nav-btn tab-active flex-1 min-w-max px-6 py-4 font-bold text-orange-600 hover:bg-orange-50 transition" data-section="home"> <span class="text-xl">🏠</span> <span data-text="home">Главная</span> </button> 
+     <button onclick="showSection('games')" class="nav-btn flex-1 min-w-max px-6 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="games"> <span class="text-xl">🎮</span> <span data-text="games">Игры</span> </button> 
+     <button onclick="showSection('dictionary')" class="nav-btn flex-1 min-w-max px-6 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="dictionary"> <span class="text-xl">📚</span> <span data-text="dictionary">Словарь</span> </button> 
+     <button onclick="showSection('translator')" class="nav-btn flex-1 min-w-max px-6 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="translator"> <span class="text-xl">🔄</span> <span data-text="translator">Переводчик</span> </button>
     </div>
-   </nav><main class="max-w-6xl mx-auto p-6"><section id="section-home" class="section">
+   </nav>
+
+   <main class="max-w-6xl mx-auto p-6">
+    <section id="section-home" class="section">
      <div class="text-center mb-12">
-      <div class="text-8xl mb-6 float">
-       🦊
+      <div class="mb-6 flex justify-center">
+        <img src="IMG_9272.png" alt="Foxy" class="h-44 w-44 object-contain float">
       </div>
       <h2 class="text-4xl md:text-5xl font-black text-orange-600 mb-4" data-text="welcome">Привет! Я Фокси!</h2>
       <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-text="welcome_desc">Давай вместе учить английский язык! Выбирай игру и начинай!</p>
      </div>
      <div class="grid md:grid-cols-3 gap-6 mb-12">
       <div class="bg-white rounded-3xl p-8 card-shadow text-center game-card transition-all cursor-pointer" onclick="showSection('games')">
-       <div class="text-6xl mb-4">
-        🎮
-       </div>
+       <div class="text-6xl mb-4">🎮</div>
        <h3 class="text-2xl font-bold text-orange-600 mb-2" data-text="play_games">Играть</h3>
        <p class="text-gray-500" data-text="play_games_desc">5 веселых игр</p>
       </div>
       <div class="bg-white rounded-3xl p-8 card-shadow text-center game-card transition-all cursor-pointer" onclick="showSection('dictionary')">
-       <div class="text-6xl mb-4">
-        📚
-       </div>
+       <div class="text-6xl mb-4">📚</div>
        <h3 class="text-2xl font-bold text-orange-600 mb-2" data-text="learn_words">Учить слова</h3>
        <p class="text-gray-500" data-text="learn_words_desc">100 важных слов</p>
       </div>
       <div class="bg-white rounded-3xl p-8 card-shadow text-center game-card transition-all cursor-pointer" onclick="showSection('translator')">
-       <div class="text-6xl mb-4">
-        🔄
-       </div>
+       <div class="text-6xl mb-4">🔄</div>
        <h3 class="text-2xl font-bold text-orange-600 mb-2" data-text="translate">Переводить</h3>
        <p class="text-gray-500" data-text="translate_desc">Быстрый перевод</p>
       </div>
-     </div><div class="bg-gradient-to-r from-orange-400 to-orange-500 rounded-3xl p-8 text-white text-center">
+     </div>
+     <div class="bg-gradient-to-r from-orange-400 to-orange-500 rounded-3xl p-8 text-white text-center">
       <h3 class="text-2xl font-bold mb-6" data-text="your_progress">Твой прогресс</h3>
       <div class="flex justify-center gap-12 flex-wrap">
        <div>
-        <div id="stat-words" class="text-5xl font-black">
-         0
-        </div>
-        <div class="text-orange-100" data-text="words_learned">
-         слов изучено
-        </div>
+        <div id="stat-words" class="text-5xl font-black">0</div>
+        <div class="text-orange-100" data-text="words_learned">слов изучено</div>
        </div>
        <div>
-        <div id="stat-games" class="text-5xl font-black">
-         0
-        </div>
-        <div class="text-orange-100" data-text="games_played">
-         игр сыграно
-        </div>
+        <div id="stat-games" class="text-5xl font-black">0</div>
+        <div class="text-orange-100" data-text="games_played">игр сыграно</div>
        </div>
        <div>
-        <div id="stat-score" class="text-5xl font-black">
-         0
-        </div>
-        <div class="text-orange-100" data-text="total_points">
-         всего очков
-        </div>
+        <div id="stat-score" class="text-5xl font-black">0</div>
+        <div class="text-orange-100" data-text="total_points">всего очков</div>
        </div>
       </div>
      </div>
-    </section><section id="section-games" class="section hidden">
+    </section>
+
+    <section id="section-games" class="section hidden">
      <h2 class="text-3xl font-black text-orange-600 mb-8 text-center" data-text="choose_game">Выбери игру!</h2>
      <div id="games-menu" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div class="bg-white rounded-3xl p-6 card-shadow game-card transition-all cursor-pointer hover:border-4 hover:border-orange-400" onclick="startGame('emoji')">
-       <div class="text-5xl mb-4 text-center">
-        😀➡️🔤
-       </div>
+       <div class="text-5xl mb-4 text-center">😀➡️🔤</div>
        <h3 class="text-xl font-bold text-orange-600 mb-2" data-text="game_emoji">Эмодзи и слова</h3>
        <p class="text-gray-500 text-sm" data-text="game_emoji_desc">Соедини эмодзи с английским словом</p>
       </div>
       <div class="bg-white rounded-3xl p-6 card-shadow game-card transition-all cursor-pointer hover:border-4 hover:border-orange-400" onclick="startGame('sentence')">
-       <div class="text-5xl mb-4 text-center">
-        📝✏️
-       </div>
+       <div class="text-5xl mb-4 text-center">📝✏️</div>
        <h3 class="text-xl font-bold text-orange-600 mb-2" data-text="game_sentence">Закончи предложение</h3>
        <p class="text-gray-500 text-sm" data-text="game_sentence_desc">Вставь пропущенное слово</p>
       </div>
       <div class="bg-white rounded-3xl p-6 card-shadow game-card transition-all cursor-pointer hover:border-4 hover:border-orange-400" onclick="startGame('memory')">
-       <div class="text-5xl mb-4 text-center">
-        🧠💭
-       </div>
+       <div class="text-5xl mb-4 text-center">🧠💭</div>
        <h3 class="text-xl font-bold text-orange-600 mb-2" data-text="game_memory">Память</h3>
        <p class="text-gray-500 text-sm" data-text="game_memory_desc">Найди пары слов</p>
       </div>
       <div class="bg-white rounded-3xl p-6 card-shadow game-card transition-all cursor-pointer hover:border-4 hover:border-orange-400" onclick="startGame('spelling')">
-       <div class="text-5xl mb-4 text-center">
-        🔡📖
-       </div>
+       <div class="text-5xl mb-4 text-center">🔡📖</div>
        <h3 class="text-xl font-bold text-orange-600 mb-2" data-text="game_spelling">Собери слово</h3>
        <p class="text-gray-500 text-sm" data-text="game_spelling_desc">Составь слово из букв</p>
       </div>
       <div class="bg-white rounded-3xl p-6 card-shadow game-card transition-all cursor-pointer hover:border-4 hover:border-orange-400" onclick="startGame('quiz')">
-       <div class="text-5xl mb-4 text-center">
-        ❓🎯
-       </div>
+       <div class="text-5xl mb-4 text-center">❓🎯</div>
        <h3 class="text-xl font-bold text-orange-600 mb-2" data-text="game_quiz">Викторина</h3>
        <p class="text-gray-500 text-sm" data-text="game_quiz_desc">Выбери правильный перевод</p>
       </div>
       <div class="bg-white rounded-3xl p-6 card-shadow game-card transition-all cursor-pointer hover:border-4 hover:border-orange-400" onclick="startGame('listening')">
-       <div class="text-5xl mb-4 text-center">
-        👂🔊
-       </div>
+       <div class="text-5xl mb-4 text-center">👂🔊</div>
        <h3 class="text-xl font-bold text-orange-600 mb-2" data-text="game_listening">Угадай слово</h3>
        <p class="text-gray-500 text-sm" data-text="game_listening_desc">Посмотри на картинку и выбери слово</p>
       </div>
-     </div><div id="game-area" class="hidden">
-      <div class="flex items-center justify-between mb-6"><button onclick="exitGame()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-full font-bold transition"> ← <span data-text="back">Назад</span> </button>
+     </div>
+     <div id="game-area" class="hidden">
+      <div class="flex items-center justify-between mb-6">
+       <button onclick="exitGame()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-full font-bold transition"> ← <span data-text="back">Назад</span> </button>
        <div class="flex items-center gap-4">
-        <div class="bg-orange-100 px-4 py-2 rounded-full"><span data-text="score">Очки</span>: <span id="game-score" class="font-bold text-orange-600">0</span>
-        </div>
-        <div class="bg-orange-100 px-4 py-2 rounded-full"><span id="game-progress">1/10</span>
-        </div>
+        <div class="bg-orange-100 px-4 py-2 rounded-full"><span data-text="score">Очки</span>: <span id="game-score" class="font-bold text-orange-600">0</span></div>
+        <div class="bg-orange-100 px-4 py-2 rounded-full"><span id="game-progress">1/10</span></div>
        </div>
       </div>
       <div id="game-content" class="bg-white rounded-3xl p-8 card-shadow min-h-96"></div>
      </div>
-    </section><section id="section-dictionary" class="section hidden">
-     <h2 class="text-3xl font-black text-orange-600 mb-6 text-center" data-text="dictionary_title">📚 Словарь - 100 слов</h2><div class="mb-6"><input type="text" id="dict-search" oninput="filterDictionary()" placeholder="Поиск..." class="w-full px-6 py-4 rounded-full border-2 border-orange-200 focus:border-orange-400 focus:outline-none text-lg">
-     </div><div class="flex flex-wrap gap-2 mb-6"><button onclick="filterCategory('all')" class="cat-btn bg-orange-500 text-white px-4 py-2 rounded-full font-bold transition" data-cat="all" data-text="cat_all">Все</button> <button onclick="filterCategory('animals')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="animals" data-text="cat_animals">Животные</button> <button onclick="filterCategory('food')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="food" data-text="cat_food">Еда</button> <button onclick="filterCategory('colors')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="colors" data-text="cat_colors">Цвета</button> <button onclick="filterCategory('family')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="family" data-text="cat_family">Семья</button> <button onclick="filterCategory('body')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="body" data-text="cat_body">Тело</button> <button onclick="filterCategory('nature')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="nature" data-text="cat_nature">Природа</button> <button onclick="filterCategory('numbers')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="numbers" data-text="cat_numbers">Числа</button> <button onclick="filterCategory('actions')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="actions" data-text="cat_actions">Действия</button>
-     </div><div id="dictionary-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
-    </section><section id="section-translator" class="section hidden">
+    </section>
+
+    <section id="section-dictionary" class="section hidden">
+     <h2 class="text-3xl font-black text-orange-600 mb-6 text-center" data-text="dictionary_title">📚 Секция Семья</h2>
+     <div class="mb-6">
+      <input type="text" id="dict-search" oninput="filterDictionary()" placeholder="Поиск..." class="w-full px-6 py-4 rounded-full border-2 border-orange-200 focus:border-orange-400 focus:outline-none text-lg">
+     </div>
+     <div class="flex flex-wrap gap-2 mb-6">
+      <button onclick="filterCategory('all')" class="cat-btn bg-orange-500 text-white px-4 py-2 rounded-full font-bold transition" data-cat="all" data-text="cat_all">Все</button> 
+      <button onclick="filterCategory('animals')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="animals" data-text="cat_animals">Животные</button> 
+      <button onclick="filterCategory('food')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="food" data-text="cat_food">Еда</button> 
+      <button onclick="filterCategory('colors')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="colors" data-text="cat_colors">Цвета</button> 
+      <button onclick="filterCategory('family')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="family" data-text="cat_family">Семья</button> 
+      <button onclick="filterCategory('body')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="body" data-text="cat_body">Тело</button> 
+      <button onclick="filterCategory('nature')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="nature" data-text="cat_nature">Природа</button> 
+      <button onclick="filterCategory('numbers')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="numbers" data-text="cat_numbers">Числа</button> 
+      <button onclick="filterCategory('actions')" class="cat-btn bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-orange-200 transition" data-cat="actions" data-text="cat_actions">Действия</button>
+     </div>
+     <div id="dictionary-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    </section>
+
+    <section id="section-translator" class="section hidden">
      <h2 class="text-3xl font-black text-orange-600 mb-8 text-center" data-text="translator_title">🔄 Переводчик</h2>
      <div class="max-w-2xl mx-auto">
       <div class="bg-white rounded-3xl p-8 card-shadow">
-       <div class="text-6xl text-center mb-6 float">
-        🦊
+       <!-- ВТОРАЯ ФОТКА: Возвращен Лисенок вместо битой картинки -->
+       <div class="mb-6 flex justify-center">
+        <img src="IMG_9272.png" alt="Foxy" class="h-20 w-20 object-contain float">
        </div>
-       <div class="mb-6"><label class="block text-gray-600 font-bold mb-2" data-text="enter_word">Введи слово:</label> <input type="text" id="translate-input" oninput="translateWord()" class="w-full px-6 py-4 rounded-2xl border-2 border-orange-200 focus:border-orange-400 focus:outline-none text-xl text-center" placeholder="cat, dog, apple...">
+       <div class="mb-6">
+        <label class="block text-gray-600 font-bold mb-2" data-text="enter_word">Введи слово:</label> 
+        <input type="text" id="translate-input" oninput="translateWord()" class="w-full px-6 py-4 rounded-2xl border-2 border-orange-200 focus:border-orange-400 focus:outline-none text-xl text-center" placeholder="cat, dog, apple...">
        </div>
        <div id="translation-result" class="hidden">
         <div class="bg-gradient-to-r from-orange-100 to-orange-50 rounded-2xl p-6">
-         <div class="text-center mb-4"><span id="result-emoji" class="text-6xl"></span>
-         </div>
+         <div class="text-center mb-4"><span id="result-emoji" class="text-6xl"></span></div>
          <div class="grid grid-cols-3 gap-4 text-center">
           <div>
-           <div class="text-sm text-gray-500 mb-1">
-            🇬🇧 English
-           </div>
+           <div class="text-sm text-gray-500 mb-1">🇬🇧 English</div>
            <div id="result-en" translate="no" class="notranslate text-xl font-bold text-orange-600"></div>
           </div>
           <div>
-           <div class="text-sm text-gray-500 mb-1">
-            🇷🇺 Русский
-           </div>
+           <div class="text-sm text-gray-500 mb-1">🇷🇺 Русский</div>
            <div id="result-ru" class="text-xl font-bold text-orange-600"></div>
           </div>
           <div>
-           <div class="text-sm text-gray-500 mb-1">
-            🇰🇿 Қазақша
-           </div>
+           <div class="text-sm text-gray-500 mb-1">🇰🇿 Қазақша</div>
            <div id="result-kz" class="text-xl font-bold text-orange-600"></div>
           </div>
          </div>
         </div>
        </div>
        <div id="no-translation" class="hidden text-center py-8">
-        <div class="text-4xl mb-4">
-         🤔
-        </div>
+        <div class="text-4xl mb-4">🤔</div>
         <p class="text-gray-500" data-text="word_not_found">Слово не найдено в словаре</p>
        </div>
-      </div><div class="mt-8">
+      </div>
+      <div class="mt-8">
        <h3 class="text-xl font-bold text-gray-600 mb-4 text-center" data-text="try_these">Попробуй эти слова:</h3>
        <div class="flex flex-wrap justify-center gap-2" id="quick-words"></div>
       </div>
      </div>
     </section>
-   </main><footer class="bg-orange-600 text-white py-6 mt-12">
+   </main>
+
+   <footer class="bg-orange-600 text-white py-6 mt-12">
     <div class="max-w-6xl mx-auto px-6 text-center">
-     <div class="text-3xl mb-2">
-      🦊
+     <!-- ПЕРВАЯ ФОТКА: Установлен Логотип вместо битой картинки в футере -->
+     <div class="mb-2 flex justify-center">
+      <img src="IMG_9271.png" alt="Foxy" class="h-12 w-12 object-contain">
      </div>
      <p class="font-bold" data-text="footer_text">Учи английский с Фокси!</p>
     </div>
    </footer>
   </div>
+
   <script>
-    // ===== DICTIONARY DATA (100 words) =====
     const dictionary = [
-      // Animals (15)
       { en: 'cat', ru: 'кошка', kz: 'мысық', emoji: '🐱', category: 'animals' },
       { en: 'dog', ru: 'собака', kz: 'ит', emoji: '🐕', category: 'animals' },
       { en: 'bird', ru: 'птица', kz: 'құс', emoji: '🐦', category: 'animals' },
@@ -258,13 +285,11 @@
       { en: 'sheep', ru: 'овца', kz: 'қой', emoji: '🐑', category: 'animals' },
       { en: 'mouse', ru: 'мышь', kz: 'тышқан', emoji: '🐭', category: 'animals' },
       { en: 'frog', ru: 'лягушка', kz: 'бақа', emoji: '🐸', category: 'animals' },
-      
-      // Food (15)
       { en: 'apple', ru: 'яблоко', kz: 'алма', emoji: '🍎', category: 'food' },
       { en: 'banana', ru: 'банан', kz: 'банан', emoji: '🍌', category: 'food' },
       { en: 'bread', ru: 'хлеб', kz: 'нан', emoji: '🍞', category: 'food' },
       { en: 'milk', ru: 'молоко', kz: 'сүт', emoji: '🥛', category: 'food' },
-      { en: 'egg', ru: 'яйцо', kz: 'жұмыртқа', emoji: '🥚', category: 'food' },
+      { en: 'egg', ru: 'яицо', kz: 'жұмыртқа', emoji: '🥚', category: 'food' },
       { en: 'water', ru: 'вода', kz: 'су', emoji: '💧', category: 'food' },
       { en: 'cheese', ru: 'сыр', kz: 'ірімшік', emoji: '🧀', category: 'food' },
       { en: 'meat', ru: 'мясо', kz: 'ет', emoji: '🥩', category: 'food' },
@@ -275,8 +300,6 @@
       { en: 'tomato', ru: 'помидор', kz: 'қызанақ', emoji: '🍅', category: 'food' },
       { en: 'potato', ru: 'картофель', kz: 'картоп', emoji: '🥔', category: 'food' },
       { en: 'cake', ru: 'торт', kz: 'торт', emoji: '🎂', category: 'food' },
-      
-      // Colors (10)
       { en: 'red', ru: 'красный', kz: 'қызыл', emoji: '🔴', category: 'colors' },
       { en: 'blue', ru: 'синий', kz: 'көк', emoji: '🔵', category: 'colors' },
       { en: 'green', ru: 'зелёный', kz: 'жасыл', emoji: '🟢', category: 'colors' },
@@ -287,8 +310,6 @@
       { en: 'white', ru: 'белый', kz: 'ақ', emoji: '⚪', category: 'colors' },
       { en: 'brown', ru: 'коричневый', kz: 'қоңыр', emoji: '🟤', category: 'colors' },
       { en: 'pink', ru: 'розовый', kz: 'қызғылт', emoji: '💗', category: 'colors' },
-      
-      // Family (10)
       { en: 'mother', ru: 'мама', kz: 'ана', emoji: '👩', category: 'family' },
       { en: 'father', ru: 'папа', kz: 'әке', emoji: '👨', category: 'family' },
       { en: 'sister', ru: 'сестра', kz: 'апа/сіңлі', emoji: '👧', category: 'family' },
@@ -299,8 +320,6 @@
       { en: 'family', ru: 'семья', kz: 'отбасы', emoji: '👨‍👩‍👧‍👦', category: 'family' },
       { en: 'friend', ru: 'друг', kz: 'дос', emoji: '🤝', category: 'family' },
       { en: 'teacher', ru: 'учитель', kz: 'мұғалім', emoji: '👩‍🏫', category: 'family' },
-      
-      // Body (10)
       { en: 'head', ru: 'голова', kz: 'бас', emoji: '🗣️', category: 'body' },
       { en: 'eye', ru: 'глаз', kz: 'көз', emoji: '👁️', category: 'body' },
       { en: 'ear', ru: 'ухо', kz: 'құлақ', emoji: '👂', category: 'body' },
@@ -311,8 +330,6 @@
       { en: 'heart', ru: 'сердце', kz: 'жүрек', emoji: '❤️', category: 'body' },
       { en: 'tooth', ru: 'зуб', kz: 'тіс', emoji: '🦷', category: 'body' },
       { en: 'hair', ru: 'волосы', kz: 'шаш', emoji: '💇', category: 'body' },
-      
-      // Nature (15)
       { en: 'sun', ru: 'солнце', kz: 'күн', emoji: '☀️', category: 'nature' },
       { en: 'moon', ru: 'луна', kz: 'ай', emoji: '🌙', category: 'nature' },
       { en: 'star', ru: 'звезда', kz: 'жұлдыз', emoji: '⭐', category: 'nature' },
@@ -328,8 +345,6 @@
       { en: 'fire', ru: 'огонь', kz: 'от', emoji: '🔥', category: 'nature' },
       { en: 'earth', ru: 'земля', kz: 'жер', emoji: '🌍', category: 'nature' },
       { en: 'sky', ru: 'небо', kz: 'аспан', emoji: '🌌', category: 'nature' },
-      
-      // Numbers (10)
       { en: 'one', ru: 'один', kz: 'бір', emoji: '1️⃣', category: 'numbers' },
       { en: 'two', ru: 'два', kz: 'екі', emoji: '2️⃣', category: 'numbers' },
       { en: 'three', ru: 'три', kz: 'үш', emoji: '3️⃣', category: 'numbers' },
@@ -340,8 +355,6 @@
       { en: 'eight', ru: 'восемь', kz: 'сегіз', emoji: '8️⃣', category: 'numbers' },
       { en: 'nine', ru: 'девять', kz: 'тоғыз', emoji: '9️⃣', category: 'numbers' },
       { en: 'ten', ru: 'десять', kz: 'он', emoji: '🔟', category: 'numbers' },
-      
-      // Actions (15)
       { en: 'run', ru: 'бегать', kz: 'жүгіру', emoji: '🏃', category: 'actions' },
       { en: 'walk', ru: 'ходить', kz: 'жүру', emoji: '🚶', category: 'actions' },
       { en: 'eat', ru: 'есть', kz: 'жеу', emoji: '🍽️', category: 'actions' },
@@ -359,12 +372,11 @@
       { en: 'learn', ru: 'учиться', kz: 'үйрену', emoji: '📚', category: 'actions' }
     ];
 
-    // ===== TRANSLATIONS =====
     const translations = {
       ru: {
         home: 'Главная', games: 'Игры', dictionary: 'Словарь', translator: 'Переводчик',
         welcome: 'Привет! Я Фокси!', welcome_desc: 'Давай вместе учить английский язык! Выбирай игру и начинай!',
-        play_games: 'Играть', play_games_desc: '5 весёлых игр',
+        play_games: 'Играть', play_games_desc: '5 веселых игр',
         learn_words: 'Учить слова', learn_words_desc: '100 важных слов',
         translate: 'Переводить', translate_desc: 'Быстрый перевод',
         your_progress: 'Твой прогресс', words_learned: 'слов изучено', games_played: 'игр сыграно', total_points: 'всего очков',
@@ -401,7 +413,7 @@
         game_spelling: 'Сөз құра', game_spelling_desc: 'Әріптерден сөз құрастыр',
         game_quiz: 'Викторина', game_quiz_desc: 'Дұрыс аударманы таңда',
         game_listening: 'Сөзді тап', game_listening_desc: 'Суретке қара және сөзді таңда',
-        back: 'Артқа', score: 'Ұпай',
+        back: 'Aртқа', score: 'Ұпай',
         dictionary_title: '📚 Сөздік - 100 сөз',
         cat_all: 'Барлығы', cat_animals: 'Жануарлар', cat_food: 'Тағам', cat_colors: 'Түстер',
         cat_family: 'Отбасы', cat_body: 'Дене', cat_nature: 'Табиғат', cat_numbers: 'Сандар', cat_actions: 'Әрекеттер',
@@ -441,35 +453,22 @@
       }
     };
 
-    // ===== STATE =====
     let currentLang = 'ru';
     let currentSection = 'home';
     let currentCategory = 'all';
     let gameState = {
-      type: null,
-      score: 0,
-      round: 0,
-      maxRounds: 10,
-      questions: [],
-      memoryCards: [],
-      flippedCards: [],
-      matchedPairs: 0
+      type: null, score: 0, round: 0, maxRounds: 10,
+      questions: [], memoryCards: [], flippedCards: [], matchedPairs: 0
     };
     let stats = { words: 0, games: 0, score: 0 };
 
-    // ===== CONFIG =====
     const defaultConfig = {
       site_title: 'Foxy English',
-      primary_color: '#FF6B35',
-      secondary_color: '#FFA726',
-      background_color: '#FFF7ED',
-      text_color: '#1F2937',
-      accent_color: '#FFFFFF'
+      primary_color: '#FF6B35', secondary_color: '#FFA726',
+      background_color: '#FFF7ED', text_color: '#1F2937', accent_color: '#FFFFFF'
     };
-
     let config = { ...defaultConfig };
 
-    // ===== ELEMENT SDK =====
     async function initSDK() {
       if (window.elementSdk) {
         await window.elementSdk.init({
@@ -486,9 +485,7 @@
               { get: () => cfg.text_color || defaultConfig.text_color, set: (v) => { cfg.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
               { get: () => cfg.accent_color || defaultConfig.accent_color, set: (v) => { cfg.accent_color = v; window.elementSdk.setConfig({ accent_color: v }); } }
             ],
-            borderables: [],
-            fontEditable: undefined,
-            fontSizeable: undefined
+            borderables: [], fontEditable: undefined, fontSizeable: undefined
           }),
           mapToEditPanelValues: (cfg) => new Map([
             ['site_title', cfg.site_title || defaultConfig.site_title]
@@ -500,24 +497,18 @@
     }
 
     function applyConfig() {
-      document.getElementById('site-title').textContent = config.site_title || defaultConfig.site_title;
-      
       document.querySelectorAll('header').forEach(el => {
         el.style.background = `linear-gradient(135deg, ${config.primary_color} 0%, ${config.secondary_color} 100%)`;
       });
-      
       document.body.style.background = `linear-gradient(135deg, ${config.background_color} 0%, white 50%, ${config.background_color} 100%)`;
-      
       document.querySelectorAll('.text-orange-600').forEach(el => {
         el.style.color = config.primary_color;
       });
-      
       document.querySelectorAll('footer').forEach(el => {
         el.style.backgroundColor = config.primary_color;
       });
     }
 
-    // ===== LANGUAGE =====
     function setLanguage(lang) {
       currentLang = lang;
       document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -536,7 +527,6 @@
       renderQuickWords();
     }
 
-    // ===== NAVIGATION =====
     function showSection(section) {
       currentSection = section;
       document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
@@ -556,7 +546,6 @@
       if (section === 'games') exitGame();
     }
 
-    // ===== DICTIONARY =====
     function renderDictionary() {
       const grid = document.getElementById('dictionary-grid');
       const search = document.getElementById('dict-search').value.toLowerCase();
@@ -584,9 +573,7 @@
       `).join('');
     }
 
-    function filterDictionary() {
-      renderDictionary();
-    }
+    function filterDictionary() { renderDictionary(); }
 
     function filterCategory(cat) {
       currentCategory = cat;
@@ -601,7 +588,6 @@
       renderDictionary();
     }
 
-    // ===== TRANSLATOR =====
     function translateWord() {
       const input = document.getElementById('translate-input').value.toLowerCase().trim();
       const resultDiv = document.getElementById('translation-result');
@@ -653,22 +639,13 @@
       }
     }
 
-    // ===== GAMES =====
     function startGame(type) {
       gameState = {
-        type,
-        score: 0,
-        round: 0,
-        maxRounds: 10,
-        questions: [],
-        memoryCards: [],
-        flippedCards: [],
-        matchedPairs: 0
+        type, score: 0, round: 0, maxRounds: 10, questions: [],
+        memoryCards: [], flippedCards: [], matchedPairs: 0
       };
-      
       document.getElementById('games-menu').classList.add('hidden');
       document.getElementById('game-area').classList.remove('hidden');
-      
       if (type === 'memory') {
         gameState.maxRounds = 8;
         initMemoryGame();
@@ -693,35 +670,23 @@
         endGame();
         return;
       }
-      
       const word = gameState.questions[gameState.round];
       const content = document.getElementById('game-content');
       document.getElementById('game-score').textContent = gameState.score;
       document.getElementById('game-progress').textContent = `${gameState.round + 1}/${gameState.maxRounds}`;
       
       switch (gameState.type) {
-        case 'emoji':
-          renderEmojiGame(word, content);
-          break;
-        case 'sentence':
-          renderSentenceGame(word, content);
-          break;
-        case 'spelling':
-          renderSpellingGame(word, content);
-          break;
-        case 'quiz':
-          renderQuizGame(word, content);
-          break;
-        case 'listening':
-          renderListeningGame(word, content);
-          break;
+        case 'emoji': renderEmojiGame(word, content); break;
+        case 'sentence': renderSentenceGame(word, content); break;
+        case 'spelling': renderSpellingGame(word, content); break;
+        case 'quiz': renderQuizGame(word, content); break;
+        case 'listening': renderListeningGame(word, content); break;
       }
     }
 
     function renderEmojiGame(word, container) {
       const wrongWords = dictionary.filter(w => w.en !== word.en).sort(() => Math.random() - 0.5).slice(0, 3);
       const options = [word, ...wrongWords].sort(() => Math.random() - 0.5);
-      
       container.innerHTML = `
         <div class="text-center">
           <p class="text-gray-600 mb-4 text-lg">${translations[currentLang].what_is_this}</p>
@@ -750,14 +715,10 @@
         numbers: [`I have ___ apples.`, `Count to ___!`, `There are ___ birds.`],
         actions: [`I like to ___.`, `Can you ___?`, `Let's ___ together!`]
       };
-      
       const categoryPatterns = sentences[word.category] || sentences.animals;
       const pattern = categoryPatterns[Math.floor(Math.random() * categoryPatterns.length)];
-      
-      const wrongWords = dictionary.filter(w => w.category === word.category && w.en !== word.en)
-        .sort(() => Math.random() - 0.5).slice(0, 3);
+      const wrongWords = dictionary.filter(w => w.category === word.category && w.en !== word.en).sort(() => Math.random() - 0.5).slice(0, 3);
       const options = [word, ...wrongWords].sort(() => Math.random() - 0.5);
-      
       container.innerHTML = `
         <div class="text-center">
           <p class="text-gray-600 mb-4 text-lg">${translations[currentLang].fill_blank}</p>
@@ -779,16 +740,12 @@
 
     function renderSpellingGame(word, container) {
       const letters = word.en.split('').sort(() => Math.random() - 0.5);
-      
       container.innerHTML = `
         <div class="text-center">
           <p class="text-gray-600 mb-4 text-lg">${translations[currentLang].build_word}</p>
           <div class="text-6xl mb-4">${word.emoji}</div>
           <div translate="no" class="notranslate text-xl text-gray-500 mb-4">${word.en}</div>
-          
-          <div id="spelling-answer" translate="no" class="notranslate flex justify-center gap-2 mb-6 min-h-16 p-4 bg-orange-50 rounded-2xl">
-            </div>
-          
+          <div id="spelling-answer" translate="no" class="notranslate flex justify-center gap-2 mb-6 min-h-16 p-4 bg-orange-50 rounded-2xl"></div>
           <div id="spelling-letters" translate="no" class="notranslate flex justify-center gap-2 flex-wrap mb-6">
             ${letters.map((letter, i) => `
               <button id="letter-${i}" onclick="selectLetter('${letter}', ${i}, '${word.en}')" 
@@ -797,31 +754,22 @@
               </button>
             `).join('')}
           </div>
-          
-          <button onclick="resetSpelling('${letters.join('')}', '${word.en}')" 
-            class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-2 rounded-full font-bold transition">
-            🔄 Reset
-          </button>
+          <button onclick="resetSpelling('${letters.join('')}', '${word.en}')" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-2 rounded-full font-bold transition">🔄 Reset</button>
         </div>
       `;
-      
       window.spellingState = { selected: [], word: word.en };
     }
 
     function selectLetter(letter, index, correctWord) {
       const btn = document.getElementById(`letter-${index}`);
       if (!btn || btn.disabled) return;
-      
       btn.disabled = true;
       btn.classList.add('opacity-30');
-      
       window.spellingState.selected.push(letter);
-      
       const answerDiv = document.getElementById('spelling-answer');
       answerDiv.innerHTML = window.spellingState.selected.map(l => `
         <span class="w-12 h-12 bg-orange-500 text-white font-bold text-2xl rounded-xl flex items-center justify-center">${l.toUpperCase()}</span>
       `).join('');
-      
       if (window.spellingState.selected.length === correctWord.length) {
         const answer = window.spellingState.selected.join('');
         setTimeout(() => checkAnswer(answer, correctWord), 300);
@@ -833,23 +781,17 @@
       document.getElementById('spelling-answer').innerHTML = '';
       letters.split('').forEach((_, i) => {
         const btn = document.getElementById(`letter-${i}`);
-        if (btn) {
-          btn.disabled = false;
-          btn.classList.remove('opacity-30');
-        }
+        if (btn) { btn.disabled = false; btn.classList.remove('opacity-30'); }
       });
     }
 
     function renderQuizGame(word, container) {
       const wrongWords = dictionary.filter(w => w.en !== word.en).sort(() => Math.random() - 0.5).slice(0, 3);
       const options = [word, ...wrongWords].sort(() => Math.random() - 0.5);
-      
       container.innerHTML = `
         <div class="text-center">
           <p class="text-gray-600 mb-4 text-lg">${translations[currentLang].select_translation}</p>
-          <div translate="no" class="notranslate text-4xl font-black text-orange-600 mb-8 bg-orange-50 p-6 rounded-2xl">
-            ${word.en.toUpperCase()}
-          </div>
+          <div translate="no" class="notranslate text-4xl font-black text-orange-600 mb-8 bg-orange-50 p-6 rounded-2xl">${word.en.toUpperCase()}</div>
           <div class="grid grid-cols-2 gap-4 max-w-lg mx-auto">
             ${options.map(opt => `
               <button onclick="checkAnswer('${opt.en}', '${word.en}')" 
@@ -863,57 +805,29 @@
       `;
     }
 
-    function renderListeningGame(word, container) {
-      const wrongWords = dictionary.filter(w => w.en !== word.en).sort(() => Math.random() - 0.5).slice(0, 3);
-      const options = [word, ...wrongWords].sort(() => Math.random() - 0.5);
-      
-      container.innerHTML = `
-        <div class="text-center">
-          <p class="text-gray-600 mb-4 text-lg">${translations[currentLang].what_is_this}</p>
-          <div class="text-8xl mb-8 float">${word.emoji}</div>
-          <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
-            ${options.map(opt => `
-              <button translate="no" onclick="checkAnswer('${opt.en}', '${word.en}')" 
-                class="notranslate answer-btn bg-orange-100 hover:bg-orange-200 text-orange-600 font-bold py-4 px-6 rounded-2xl text-xl transition transform hover:scale-105">
-                ${opt.en}
-              </button>
-            `).join('')}
-          </div>
-        </div>
-      `;
-    }
-
-    // ===== MEMORY GAME =====
     function initMemoryGame() {
       const words = [...dictionary].sort(() => Math.random() - 0.5).slice(0, 8);
       const cards = [];
-      
       words.forEach((word, i) => {
         cards.push({ id: i * 2, type: 'emoji', value: word.emoji, word: word.en, matched: false });
         cards.push({ id: i * 2 + 1, type: 'text', value: word.en, word: word.en, matched: false });
       });
-      
       gameState.memoryCards = cards.sort(() => Math.random() - 0.5);
       gameState.flippedCards = [];
       gameState.matchedPairs = 0;
-      
       renderMemoryBoard();
     }
 
-    // 
     function renderMemoryBoard() {
       const content = document.getElementById('game-content');
       document.getElementById('game-score').textContent = gameState.score;
       document.getElementById('game-progress').textContent = `${gameState.matchedPairs}/${gameState.maxRounds}`;
-      
       content.innerHTML = `
         <p class="text-center text-gray-600 mb-6 text-lg">${translations[currentLang].find_pairs}</p>
         <div class="grid grid-cols-4 gap-3 max-w-lg mx-auto">
           ${gameState.memoryCards.map(card => `
-            <div id="card-${card.id}" 
-              onclick="flipCard(${card.id})" 
-              class="memory-card aspect-square rounded-xl cursor-pointer transition transform hover:scale-105 ${card.matched ? 'opacity-30 pointer-events-none' : ''}"
-              data-flipped="${card.flipped || false}">
+            <div id="card-${card.id}" onclick="flipCard(${card.id})" 
+              class="memory-card aspect-square rounded-xl cursor-pointer transition transform hover:scale-105 ${card.matched ? 'opacity-30 pointer-events-none' : ''}">
               <div class="w-full h-full bg-orange-500 rounded-xl flex items-center justify-center ${card.flipped ? 'hidden' : ''}">
                 <span class="text-3xl text-white">🦊</span>
               </div>
@@ -928,54 +842,31 @@
 
     function flipCard(cardId) {
       if (gameState.flippedCards.length >= 2) return;
-      
       const card = gameState.memoryCards.find(c => c.id === cardId);
       if (!card || card.matched || card.flipped) return;
-      
       card.flipped = true;
       gameState.flippedCards.push(card);
       renderMemoryBoard();
-      
-      if (gameState.flippedCards.length === 2) {
-        setTimeout(checkMemoryMatch, 800);
-      }
+      if (gameState.flippedCards.length === 2) { setTimeout(checkMemoryMatch, 800); }
     }
 
     function checkMemoryMatch() {
       const [card1, card2] = gameState.flippedCards;
-      
       if (card1.word === card2.word) {
-        card1.matched = true;
-        card2.matched = true;
-        gameState.matchedPairs++;
-        gameState.score += 10;
+        card1.matched = true; card2.matched = true;
+        gameState.matchedPairs++; gameState.score += 10;
         showFeedback(true);
-        
-        if (gameState.matchedPairs >= gameState.maxRounds) {
-          setTimeout(endGame, 500);
-        }
+        if (gameState.matchedPairs >= gameState.maxRounds) { setTimeout(endGame, 500); }
       } else {
-        showFeedback(false);
-        card1.flipped = false;
-        card2.flipped = false;
+        showFeedback(false); card1.flipped = false; card2.flipped = false;
       }
-      
       gameState.flippedCards = [];
       renderMemoryBoard();
     }
 
-    // ===== ANSWER CHECK =====
     function checkAnswer(answer, correct) {
       const isCorrect = answer.toLowerCase() === correct.toLowerCase();
-      
-      if (isCorrect) {
-        gameState.score += 10;
-        showFeedback(true);
-        stats.words++;
-      } else {
-        showFeedback(false);
-      }
-      
+      if (isCorrect) { gameState.score += 10; showFeedback(true); stats.words++; } else { showFeedback(false); }
       gameState.round++;
       setTimeout(showQuestion, 1000);
     }
@@ -984,21 +875,14 @@
       const content = document.getElementById('game-content');
       const feedback = document.createElement('div');
       feedback.className = `fixed inset-0 flex items-center justify-center z-50 ${correct ? 'bg-green-500/30' : 'bg-red-500/30'} pointer-events-none`;
-      feedback.innerHTML = `
-        <div class="text-6xl ${correct ? 'bounce' : 'shake'}">
-          ${correct ? '✅' : '❌'}
-        </div>
-      `;
+      feedback.innerHTML = `<div class="text-6xl ${correct ? 'bounce' : 'shake'}">${correct ? '✅' : '❌'}</div>`;
       content.appendChild(feedback);
-      
       setTimeout(() => feedback.remove(), 800);
     }
 
     function endGame() {
-      stats.games++;
-      stats.score += gameState.score;
+      stats.games++; stats.score += gameState.score;
       updateStats();
-      
       const content = document.getElementById('game-content');
       content.innerHTML = `
         <div class="text-center py-8">
@@ -1006,10 +890,7 @@
           <h3 class="text-3xl font-black text-orange-600 mb-4">${translations[currentLang].game_over}</h3>
           <p class="text-xl text-gray-600 mb-2">${translations[currentLang].your_score}:</p>
           <p class="text-5xl font-black text-orange-500 mb-8">${gameState.score}</p>
-          <button onclick="startGame('${gameState.type}')" 
-            class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-full text-xl transition transform hover:scale-105">
-            🔄 ${translations[currentLang].play_again}
-          </button>
+          <button onclick="startGame('${gameState.type}')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-full text-xl transition transform hover:scale-105">🔄 ${translations[currentLang].play_again}</button>
         </div>
       `;
     }
@@ -1020,11 +901,10 @@
       document.getElementById('stat-score').textContent = stats.score;
     }
 
-    // ===== INIT =====
     initSDK();
     setLanguage('ru');
     renderDictionary();
     renderQuickWords();
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cea634f1746b571',t:'MTc3MTIxNzA0Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ </body>
 </html>
