@@ -863,12 +863,12 @@
         <div class="grid grid-cols-4 gap-3 max-w-lg mx-auto">
           ${gameState.memoryCards.map(card => `
             <div id="card-${card.id}" onclick="flipCard(${card.id})" 
-              class="memory-card aspect-square w-full rounded-xl cursor-pointer transition transform hover:scale-105 ${card.matched ? 'opacity-30 pointer-events-none' : ''}">
+              class="memory-card h-24 sm:h-28 w-full rounded-xl cursor-pointer transition transform hover:scale-105 ${card.matched ? 'opacity-30 pointer-events-none' : ''}">
               <div class="w-full h-full bg-orange-500 rounded-xl flex items-center justify-center ${card.flipped ? 'hidden' : ''}">
                 <span class="text-3xl text-white">🦊</span>
               </div>
-              <div class="w-full h-full bg-white border-2 border-orange-300 rounded-xl flex items-center justify-center ${card.flipped ? '' : 'hidden'}">
-                <span translate="no" class="notranslate ${card.type === 'emoji' ? 'text-4xl' : 'text-lg font-bold text-orange-600'}">${card.value}</span>
+              <div class="w-full h-full bg-white border-2 border-orange-300 rounded-xl flex items-center justify-center p-1 text-center ${card.flipped ? '' : 'hidden'}">
+                <span translate="no" class="notranslate ${card.type === 'emoji' ? 'text-4xl' : 'text-sm sm:text-base font-bold text-orange-600 leading-tight'}">${card.value}</span>
               </div>
             </div>
           `).join('')}
