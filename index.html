@@ -863,7 +863,7 @@
         <div class="grid grid-cols-4 gap-3 max-w-lg mx-auto">
           ${gameState.memoryCards.map(card => `
             <div id="card-${card.id}" onclick="flipCard(${card.id})" 
-              class="memory-card aspect-square rounded-xl cursor-pointer transition transform hover:scale-105 ${card.matched ? 'opacity-30 pointer-events-none' : ''}">
+              class="memory-card aspect-square w-full rounded-xl cursor-pointer transition transform hover:scale-105 ${card.matched ? 'opacity-30 pointer-events-none' : ''}">
               <div class="w-full h-full bg-orange-500 rounded-xl flex items-center justify-center ${card.flipped ? 'hidden' : ''}">
                 <span class="text-3xl text-white">🦊</span>
               </div>
