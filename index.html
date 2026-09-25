@@ -824,10 +824,10 @@
           <p class="text-gray-600 mb-4 text-lg">${translations[currentLang].game_listening}</p>
           <div class="mb-6">
             <button onclick="speakWord('${word.en}')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-full text-2xl transition transform hover:scale-105 shadow-lg">
-              🔊 Послушать слово
+              🔊
             </button>
           </div>
-          <p class="text-gray-500 mb-6 text-sm">Нажми на кнопку выше и выбери правильный вариант:</p>
+          <p class="text-gray-500 mb-6 text-sm"></p>
           <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
             ${options.map(opt => `
               <button translate="no" onclick="checkAnswer('${opt.en}', '${word.en}')" 
