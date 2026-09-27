@@ -104,14 +104,17 @@
 
    <nav class="bg-white shadow-md sticky top-16 z-40">
     <div class="max-w-6xl mx-auto flex overflow-x-auto">
-     <button onclick="showSection('home')" class="nav-btn tab-active flex-1 min-w-max px-6 py-4 font-bold text-orange-600 hover:bg-orange-50 transition" data-section="home"> <span class="text-xl">🏠</span> <span data-text="home">Главная</span> </button> 
-     <button onclick="showSection('games')" class="nav-btn flex-1 min-w-max px-6 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="games"> <span class="text-xl">🎮</span> <span data-text="games">Игры</span> </button> 
-     <button onclick="showSection('dictionary')" class="nav-btn flex-1 min-w-max px-6 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="dictionary"> <span class="text-xl">📚</span> <span data-text="dictionary">Словарь</span> </button> 
-     <button onclick="showSection('translator')" class="nav-btn flex-1 min-w-max px-6 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="translator"> <span class="text-xl">🔄</span> <span data-text="translator">Переводчик</span> </button>
+     <button onclick="showSection('home')" class="nav-btn tab-active flex-1 min-w-max px-4 py-4 font-bold text-orange-600 hover:bg-orange-50 transition" data-section="home"> <span class="text-xl">🏠</span> <span data-text="home">Главная</span> </button> 
+     <button onclick="showSection('games')" class="nav-btn flex-1 min-w-max px-4 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="games"> <span class="text-xl">🎮</span> <span data-text="games">Игры</span> </button> 
+     <button onclick="showSection('dictionary')" class="nav-btn flex-1 min-w-max px-4 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="dictionary"> <span class="text-xl">📚</span> <span data-text="dictionary">Словарь</span> </button> 
+     <button onclick="showSection('translator')" class="nav-btn flex-1 min-w-max px-4 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="translator"> <span class="text-xl">🔄</span> <span data-text="translator">Переводчик</span> </button>
+     <button onclick="showSection('cards')" class="nav-btn flex-1 min-w-max px-4 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="cards"> <span class="text-xl">🎴</span> <span data-text="cards_nav">Карточки</span> </button>
+     <button onclick="showSection('account')" class="nav-btn flex-1 min-w-max px-4 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="account"> <span class="text-xl">👤</span> <span data-text="account_nav">Аккаунт</span> </button>
     </div>
    </nav>
 
    <main class="max-w-6xl mx-auto p-6">
+    <!-- ГЛАВНАЯ СТРАНИЦА -->
     <section id="section-home" class="section">
      <div class="text-center mb-12">
       <div class="mb-6 flex justify-center">
@@ -131,31 +134,15 @@
        <h3 class="text-2xl font-bold text-orange-600 mb-2" data-text="learn_words">Учить слова</h3>
        <p class="text-gray-500" data-text="learn_words_desc">100 важных слов</p>
       </div>
-      <div class="bg-white rounded-3xl p-8 card-shadow text-center game-card transition-all cursor-pointer" onclick="showSection('translator')">
-       <div class="text-6xl mb-4">🔄</div>
-       <h3 class="text-2xl font-bold text-orange-600 mb-2" data-text="translate">Переводить</h3>
-       <p class="text-gray-500" data-text="translate_desc">Быстрый перевод</p>
-      </div>
-     </div>
-     <div class="bg-gradient-to-r from-orange-400 to-orange-500 rounded-3xl p-8 text-white text-center">
-      <h3 class="text-2xl font-bold mb-6" data-text="your_progress">Твой прогресс</h3>
-      <div class="flex justify-center gap-12 flex-wrap">
-       <div>
-        <div id="stat-words" class="text-5xl font-black">0</div>
-        <div class="text-orange-100" data-text="words_learned">слов изучено</div>
-       </div>
-       <div>
-        <div id="stat-games" class="text-5xl font-black">0</div>
-        <div class="text-orange-100" data-text="games_played">игр сыграно</div>
-       </div>
-       <div>
-        <div id="stat-score" class="text-5xl font-black">0</div>
-        <div class="text-orange-100" data-text="total_points">всего очков</div>
-       </div>
+      <div class="bg-white rounded-3xl p-8 card-shadow text-center game-card transition-all cursor-pointer" onclick="showSection('cards')">
+       <div class="text-6xl mb-4">🎴</div>
+       <h3 class="text-2xl font-bold text-orange-600 mb-2" data-text="cards_nav">Коллекция</h3>
+       <p class="text-gray-500" data-text="cards_desc_home">Уникальные карточки</p>
       </div>
      </div>
     </section>
 
+    <!-- ИГРЫ -->
     <section id="section-games" class="section hidden">
      <h2 class="text-3xl font-black text-orange-600 mb-8 text-center" data-text="choose_game">Выбери игру!</h2>
      <div id="games-menu" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -202,6 +189,7 @@
      </div>
     </section>
 
+    <!-- СЛОВАРЬ -->
     <section id="section-dictionary" class="section hidden">
      <h2 class="text-3xl font-black text-orange-600 mb-6 text-center" data-text="dictionary_title">📚 Секция Семья</h2>
      <div class="mb-6">
@@ -221,6 +209,7 @@
      <div id="dictionary-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
     </section>
 
+    <!-- ПЕРЕВОДЧИК -->
     <section id="section-translator" class="section hidden">
      <h2 class="text-3xl font-black text-orange-600 mb-8 text-center" data-text="translator_title">🔄 Переводчик</h2>
      <div class="max-w-2xl mx-auto">
@@ -259,6 +248,84 @@
       <div class="mt-8">
        <h3 class="text-xl font-bold text-gray-600 mb-4 text-center" data-text="try_these">Попробуй эти слова:</h3>
        <div class="flex flex-wrap justify-center gap-2" id="quick-words"></div>
+      </div>
+     </div>
+    </section>
+
+    <!-- КОЛЛЕКЦИОННЫЕ КАРТОЧКИ (НОВЫЙ РАЗДЕЛ) -->
+    <section id="section-cards" class="section hidden">
+     <div class="text-center mb-8">
+      <h2 class="text-3xl font-black text-orange-600 mb-2" data-text="cards_section_title">🎴 Уникальные коллекционные карточки</h2>
+      <p class="text-gray-600" data-text="cards_section_desc">Открывай бустеры за свои очки, собирай редкие карточки Фокси и друзей!</p>
+     </div>
+     
+     <div class="bg-gradient-to-r from-orange-400 to-orange-500 rounded-3xl p-6 text-white text-center mb-8 shadow-lg flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+       <h3 class="text-2xl font-bold mb-1" data-text="open_pack_title">Бустер с карточками</h3>
+       <p class="text-orange-100 text-sm" data-text="open_pack_desc">Стоимость открытия: 50 очков</p>
+      </div>
+      <button onclick="openCardPack()" class="bg-white text-orange-600 font-extrabold px-8 py-3 rounded-full shadow-lg hover:bg-orange-50 transition transform hover:scale-105" data-text="open_pack_btn">🎁 Открыть пак (50 🪙)</button>
+     </div>
+
+     <div class="mb-4 flex justify-between items-center">
+      <h3 class="text-xl font-bold text-gray-700" data-text="my_collection">Моя коллекция</h3>
+      <span id="collection-counter" class="bg-orange-100 text-orange-600 font-bold px-4 py-1 rounded-full text-sm">0 / 8</span>
+     </div>
+
+     <div id="cards-grid" class="grid grid-cols-2 md:grid-cols-4 gap-6"></div>
+    </section>
+
+    <!-- АККАУНТ И ПРОФИЛЬ (НОВЫЙ РАЗДЕЛ) -->
+    <section id="section-account" class="section hidden">
+     <div class="max-w-2xl mx-auto bg-white rounded-3xl p-8 card-shadow">
+      <h2 class="text-3xl font-black text-orange-600 mb-6 text-center" data-text="account_title">👤 Твой аккаунт</h2>
+      
+      <!-- Настройка профиля (Ник и Аватарка) -->
+      <div class="bg-orange-50 rounded-2xl p-6 mb-8 text-center">
+       <div class="relative w-28 h-28 mx-auto mb-4 cursor-pointer group" onclick="toggleAvatarPicker()">
+        <img id="current-avatar" src="IMG_6666.png" class="w-full h-full object-cover rounded-full border-4 border-orange-400 shadow-md">
+        <div class="absolute inset-0 bg-black/40 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition text-white font-bold text-sm">Изменить</div>
+       </div>
+
+       <!-- Выбор аватарок (скрытый по умолчанию) -->
+       <div id="avatar-picker" class="hidden mb-6 p-4 bg-white rounded-xl shadow-inner">
+        <p class="text-sm font-bold text-gray-600 mb-3" data-text="select_avatar">Выбери аватарку:</p>
+        <div class="flex justify-center gap-3 flex-wrap">
+         <img src="IMG_6666.png" onclick="setAvatar('IMG_6666.png')" class="w-14 h-14 rounded-full cursor-pointer hover:scale-110 border-2 border-orange-300 object-cover">
+         <img src="IMG_6667.png" onclick="setAvatar('IMG_6667.png')" class="w-14 h-14 rounded-full cursor-pointer hover:scale-110 border-2 border-orange-300 object-cover">
+         <img src="IMG_6661.png" onclick="setAvatar('IMG_6661.png')" class="w-14 h-14 rounded-full cursor-pointer hover:scale-110 border-2 border-orange-300 object-cover">
+         <img src="IMG_6662.png" onclick="setAvatar('IMG_6662.png')" class="w-14 h-14 rounded-full cursor-pointer hover:scale-110 border-2 border-orange-300 object-cover">
+        </div>
+       </div>
+
+       <div class="max-w-xs mx-auto">
+        <label class="block text-gray-500 text-sm font-bold mb-1" data-text="nickname_label">Твой никнейм:</label>
+        <div class="flex gap-2">
+         <input type="text" id="username-input" class="w-full px-4 py-2 rounded-xl border-2 border-orange-200 focus:border-orange-400 focus:outline-none font-bold text-center text-orange-600" placeholder="Фоксик">
+         <button onclick="saveUsername()" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-4 py-2 rounded-xl transition" data-text="save_btn">Сохранить</button>
+        </div>
+       </div>
+      </div>
+
+      <!-- Рейтинг и статистика (перенесено сюда) -->
+      <h3 class="text-xl font-bold text-gray-700 mb-4 text-center" data-text="rating_stats_title">🏆 Твоя статистика и рейтинг</h3>
+      <div class="grid grid-cols-3 gap-4 mb-8 text-center">
+       <div class="bg-orange-100/60 rounded-2xl p-4">
+        <div id="acc-stat-words" class="text-3xl md:text-4xl font-black text-orange-600">0</div>
+        <div class="text-gray-500 text-xs md:text-sm font-bold" data-text="words_learned">слов изучено</div>
+       </div>
+       <div class="bg-orange-100/60 rounded-2xl p-4">
+        <div id="acc-stat-games" class="text-3xl md:text-4xl font-black text-orange-600">0</div>
+        <div class="text-gray-500 text-xs md:text-sm font-bold" data-text="games_played">игр сыграно</div>
+       </div>
+       <div class="bg-orange-100/60 rounded-2xl p-4">
+        <div id="acc-stat-score" class="text-3xl md:text-4xl font-black text-orange-600">0</div>
+        <div class="text-gray-500 text-xs md:text-sm font-bold" data-text="total_points">всего очков</div>
+       </div>
+      </div>
+
+      <div class="text-center">
+       <button onclick="resetProgress()" class="bg-red-100 hover:bg-red-200 text-red-600 font-bold px-6 py-2 rounded-full text-sm transition" data-text="reset_btn">Сбросить прогресс</button>
       </div>
      </div>
     </section>
@@ -378,14 +445,26 @@
       { en: 'learn', ru: 'учиться', kz: 'үйрену', emoji: '📚', category: 'actions' }
     ];
 
+    // Коллекционные карточки
+    const allCollectibleCards = [
+      { id: 1, name: 'Фокси Студент', rarity: 'common', emoji: '🦊', desc: 'Обычный маскот, любит учить слова.' },
+      { id: 2, name: 'Кот Ученый', rarity: 'common', emoji: '🐱', desc: 'Знает ответы на все грамматические вопросы.' },
+      { id: 3, name: 'Золотая Звезда', rarity: 'rare', emoji: '⭐', desc: 'Награда за успешную игру в викторинах.' },
+      { id: 4, name: 'Супер Книга', rarity: 'rare', emoji: '📖', desc: 'Сборник из 100 важных английских слов.' },
+      { id: 5, name: 'Ракета Прогресса', rarity: 'epic', emoji: '🚀', desc: 'Символ быстрого роста знаний.' },
+      { id: 6, name: 'Алмазный Кубок', rarity: 'epic', emoji: '🏆', desc: 'Для лучших игроков платформы 100WORDS.' },
+      { id: 7, name: 'Король Фокси', rarity: 'legendary', emoji: '👑🦊', desc: 'Легендарный правитель мира английского языка.' },
+      { id: 8, name: 'Магический Кристалл', rarity: 'legendary', emoji: '💎', desc: 'Редчайший артефакт мудрости.' }
+    ];
+
     const translations = {
       ru: {
-        home: 'Главная', games: 'Игры', dictionary: 'Словарь', translator: 'Переводчик',
+        home: 'Главная', games: 'Игры', dictionary: 'Словарь', translator: 'Переводчик', cards_nav: 'Карточки', account_nav: 'Аккаунт',
         welcome: 'Привет! Я Фокси!', welcome_desc: 'Давай вместе учить английский язык в 100WORDS ! Выбирай игру и начинай!',
         play_games: 'Играть', play_games_desc: '5 веселых игр',
         learn_words: 'Учить слова', learn_words_desc: '100 важных слов',
         translate: 'Переводить', translate_desc: 'Быстрый перевод',
-        your_progress: 'Твой прогресс', words_learned: 'слов изучено', games_played: 'игр сыграно', total_points: 'всего очков',
+        cards_desc_home: 'Уникальные карточки',
         choose_game: 'Выбери игру!',
         game_emoji: 'Эмодзи и слова', game_emoji_desc: 'Соедини эмодзи с английским словом',
         game_sentence: 'Закончи предложение', game_sentence_desc: 'Вставь пропущенное слово',
@@ -403,15 +482,28 @@
         play_again: 'Играть снова', your_score: 'Твои очки', 
         what_is_this: 'Что это?', choose_word: 'Выбери слово:',
         fill_blank: 'Вставь слово:', build_word: 'Собери слово:', find_pairs: 'Найди пары!',
-        select_translation: 'Выбери перевод:'
+        select_translation: 'Выбери перевод:',
+        cards_section_title: '🎴 Уникальные коллекционные карточки',
+        cards_section_desc: 'Открывай бустеры за свои очки, собирай редкие карточки Фокси и друзей!',
+        open_pack_title: 'Бустер с карточками', open_pack_desc: 'Стоимость открытия: 50 очков',
+        open_pack_btn: '🎁 Открыть пак (50 🪙)',
+        my_collection: 'Моя коллекция',
+        account_title: '👤 Твой аккаунт',
+        select_avatar: 'Выбери аватарку:',
+        nickname_label: 'Твой никнейм:',
+        save_btn: 'Сохранить',
+        rating_stats_title: '🏆 Твоя статистика и рейтинг',
+        words_learned: 'слов изучено', games_played: 'игр сыграно', total_points: 'всего очков',
+        reset_btn: 'Сбросить прогресс',
+        rarity_common: 'Обычная', rarity_rare: 'Редкая', rarity_epic: 'Эпическая', rarity_legendary: 'Легендарная'
       },
       kz: {
-        home: 'Басты', games: 'Ойындар', dictionary: 'Сөздік', translator: 'Аудармашы',
+        home: 'Басты', games: 'Ойындар', dictionary: 'Сөздік', translator: 'Аудармашы', cards_nav: 'Карточкалар', account_nav: 'Аккаунт',
         welcome: 'Сәлем! Мен Фоксимін!', welcome_desc: 'Бірге ағылшын тілін үйренейік 100WORDS ! Ойынды таңда және баста!',
         play_games: 'Ойнау', play_games_desc: '5 қызықты ойын',
         learn_words: 'Сөз үйрену', learn_words_desc: '100 маңызды сөз',
         translate: 'Аудару', translate_desc: 'Жылдам аударма',
-        your_progress: 'Сенің жетістігің', words_learned: 'сөз үйренілді', games_played: 'ойын ойналды', total_points: 'барлық ұпай',
+        cards_desc_home: 'Бірегей карточкалар',
         choose_game: 'Ойынды таңда!',
         game_emoji: 'Эмодзи және сөздер', game_emoji_desc: 'Эмодзиді ағылшын сөзімен байланыстыр',
         game_sentence: 'Сөйлемді аяқта', game_sentence_desc: 'Жетіспейтін сөзді қой',
@@ -429,15 +521,28 @@
         play_again: 'Қайта ойнау', your_score: 'Сенің ұпайың',
         what_is_this: 'Бұл не?', choose_word: 'Сөзді таңда:',
         fill_blank: 'Сөзді қой:', build_word: 'Сөз құра:', find_pairs: 'Жұптарды тап!',
-        select_translation: 'Аударманы таңда:'
+        select_translation: 'Аударманы таңда:',
+        cards_section_title: '🎴 Бірегей жинақ карточкалары',
+        cards_section_desc: 'Ұпайларыңызға бустерлер ашыңыз, сирек кездесетін Фокси карточкаларын жинаңыз!',
+        open_pack_title: 'Карточка бустері', open_pack_desc: 'Ашу құны: 50 ұпай',
+        open_pack_btn: '🎁 Пак ашу (50 🪙)',
+        my_collection: 'Менің жинағым',
+        account_title: '👤 Сіздің аккаунт',
+        select_avatar: 'Аватар таңдаңыз:',
+        nickname_label: 'Блақап атыңыз (Ник):',
+        save_btn: 'Сақтау',
+        rating_stats_title: '🏆 Статистика мен рейтинг',
+        words_learned: 'сөз үйренілді', games_played: 'ойын ойналды', total_points: 'барлық ұпай',
+        reset_btn: 'Прогресті қалпына келтіру',
+        rarity_common: 'Қарапайым', rarity_rare: 'Сирек', rarity_epic: 'Эпикалық', rarity_legendary: 'Аңызға айналған'
       },
       en: {
-        home: 'Home', games: 'Games', dictionary: 'Dictionary', translator: 'Translator',
+        home: 'Home', games: 'Games', dictionary: 'Dictionary', translator: 'Translator', cards_nav: 'Cards', account_nav: 'Account',
         welcome: 'Hi! I\'m Foxy!', welcome_desc: 'Let\'s learn English together with 100WORDS ! Choose a game and start!',
         play_games: 'Play', play_games_desc: '5 fun games',
         learn_words: 'Learn words', learn_words_desc: '100 important words',
         translate: 'Translate', translate_desc: 'Quick translation',
-        your_progress: 'Your progress', words_learned: 'words learned', games_played: 'games played', total_points: 'total points',
+        cards_desc_home: 'Unique collectible cards',
         choose_game: 'Choose a game!',
         game_emoji: 'Emoji & Words', game_emoji_desc: 'Match emoji with English word',
         game_sentence: 'Complete sentence', game_sentence_desc: 'Fill in the missing word',
@@ -455,7 +560,20 @@
         play_again: 'Play again', your_score: 'Your score',
         what_is_this: 'What is this?', choose_word: 'Choose word:',
         fill_blank: 'Fill in:', build_word: 'Build word:', find_pairs: 'Find pairs!',
-        select_translation: 'Select translation:'
+        select_translation: 'Select translation:',
+        cards_section_title: '🎴 Unique Collectible Cards',
+        cards_section_desc: 'Open card packs with your score, collect rare Foxy cards!',
+        open_pack_title: 'Card Booster Pack', open_pack_desc: 'Cost: 50 points',
+        open_pack_btn: '🎁 Open Pack (50 🪙)',
+        my_collection: 'My Collection',
+        account_title: '👤 Your Account',
+        select_avatar: 'Select avatar:',
+        nickname_label: 'Nickname:',
+        save_btn: 'Save',
+        rating_stats_title: '🏆 Statistics & Rating',
+        words_learned: 'words learned', games_played: 'games played', total_points: 'total points',
+        reset_btn: 'Reset progress',
+        rarity_common: 'Common', rarity_rare: 'Rare', rarity_epic: 'Epic', rarity_legendary: 'Legendary'
       }
     };
 
@@ -467,11 +585,14 @@
       questions: [], memoryCards: [], flippedCards: [], matchedPairs: 0
     };
     
-    // Загрузка сохранённого прогресса из localStorage или установка нулей по умолчанию
-    let stats = {
+    // Профиль пользователя и статистика
+    let userProfile = {
+      username: localStorage.getItem('foxy_username') || 'Yerken',
+      avatar: localStorage.getItem('foxy_avatar') || 'IMG_6666.png',
       words: parseInt(localStorage.getItem('foxy_words')) || 0,
       games: parseInt(localStorage.getItem('foxy_games')) || 0,
-      score: parseInt(localStorage.getItem('foxy_score')) || 0
+      score: parseInt(localStorage.getItem('foxy_score')) || 0,
+      inventory: JSON.parse(localStorage.getItem('foxy_inventory')) || [1] // 1 карточка открыта по умолчанию
     };
 
     const defaultConfig = {
@@ -537,6 +658,7 @@
       
       renderDictionary();
       renderQuickWords();
+      renderCardsCollection();
     }
 
     function showSection(section) {
@@ -555,7 +677,118 @@
       
       if (section === 'dictionary') renderDictionary();
       if (section === 'translator') renderQuickWords();
+      if (section === 'cards') renderCardsCollection();
+      if (section === 'account') loadAccountData();
       if (section === 'games') exitGame();
+    }
+
+    // Управление профилем и аккаунтом
+    function loadAccountData() {
+      document.getElementById('username-input').value = userProfile.username;
+      document.getElementById('current-avatar').src = userProfile.avatar;
+      
+      document.getElementById('acc-stat-words').textContent = userProfile.words;
+      document.getElementById('acc-stat-games').textContent = userProfile.games;
+      document.getElementById('acc-stat-score').textContent = userProfile.score;
+    }
+
+    function toggleAvatarPicker() {
+      const picker = document.getElementById('avatar-picker');
+      picker.classList.toggle('hidden');
+    }
+
+    function setAvatar(avatarSrc) {
+      userProfile.avatar = avatarSrc;
+      document.getElementById('current-avatar').src = avatarSrc;
+      localStorage.setItem('foxy_avatar', avatarSrc);
+      toggleAvatarPicker();
+    }
+
+    function saveUsername() {
+      const newName = document.getElementById('username-input').value.trim();
+      if (newName) {
+        userProfile.username = newName;
+        localStorage.setItem('foxy_username', newName);
+        alert('Никнейм успешно сохранен!');
+      }
+    }
+
+    function resetProgress() {
+      if (confirm('Вы уверены, что хотите сбросить весь прогресс?')) {
+        localStorage.clear();
+        userProfile = { username: 'Yerken', avatar: 'IMG_6666.png', words: 0, games: 0, score: 0, inventory: [1] };
+        updateStats();
+        loadAccountData();
+        renderCardsCollection();
+      }
+    }
+
+    // Коллекционные карточки
+    function renderCardsCollection() {
+      const grid = document.getElementById('cards-grid');
+      const counter = document.getElementById('collection-counter');
+      counter.textContent = `${userProfile.inventory.length} / ${allCollectibleCards.length}`;
+
+      const rarityColors = {
+        common: 'bg-gray-100 border-gray-300 text-gray-700',
+        rare: 'bg-blue-50 border-blue-300 text-blue-600',
+        epic: 'bg-purple-50 border-purple-300 text-purple-600',
+        legendary: 'bg-amber-50 border-amber-400 text-amber-600 shadow-amber-200 shadow-md'
+      };
+
+      grid.innerHTML = allCollectibleCards.map(card => {
+        const isUnlocked = userProfile.inventory.includes(card.id);
+        const rarityText = translations[currentLang][`rarity_${card.rarity}`] || card.rarity;
+
+        if (!isUnlocked) {
+          return `
+            <div class="bg-gray-100 border-2 border-dashed border-gray-300 rounded-3xl p-6 text-center flex flex-col items-center justify-center min-h-[200px]">
+              <div class="text-4xl mb-2 opacity-40">🔒</div>
+              <div class="font-bold text-gray-400 text-sm">??????</div>
+              <div class="text-xs text-gray-400 mt-1">${rarityText}</div>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="${rarityColors[card.rarity]} border-2 rounded-3xl p-5 text-center flex flex-col items-center justify-between transition transform hover:scale-105">
+            <div class="w-full flex justify-between items-center text-xs font-bold uppercase opacity-70">
+              <span>#${card.id}</span>
+              <span>${rarityText}</span>
+            </div>
+            <div class="text-5xl my-3">${card.emoji}</div>
+            <div>
+              <h4 class="font-black text-base mb-1">${card.name}</h4>
+              <p class="text-xs opacity-75">${card.desc}</p>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openCardPack() {
+      if (userProfile.score < 50) {
+        alert(currentLang === 'kz' ? 'Ұпай жеткіліксіз! (Кемінде 50 ұпай керек)' : 'Недостаточно очков! Нужно минимум 50 очков.');
+        return;
+      }
+      userProfile.score -= 50;
+      updateStats();
+
+      // Выпадение случайной карточки
+      const lockedCards = allCollectibleCards.filter(c => !userProfile.inventory.includes(c.id));
+      let rewardCard;
+      if (lockedCards.length > 0) {
+        rewardCard = lockedCards[Math.floor(Math.random() * lockedCards.length)];
+        userProfile.inventory.push(rewardCard.id);
+        localStorage.setItem('foxy_inventory', JSON.stringify(userProfile.inventory));
+      } else {
+        rewardCard = allCollectibleCards[Math.floor(Math.random() * allCollectibleCards.length)];
+        userProfile.score += 20; // Компенсация если все карточки собраны
+        updateStats();
+      }
+
+      renderCardsCollection();
+      alert(`🎉 Поздравляем! Вам выпала карточка: "${rewardCard.name}" (${rewardCard.emoji})`);
     }
 
     function renderDictionary() {
@@ -624,7 +857,7 @@
         document.getElementById('result-kz').textContent = word.kz;
         resultDiv.classList.remove('hidden');
         noResult.classList.add('hidden');
-        stats.words++;
+        userProfile.words++;
         updateStats();
       } else {
         resultDiv.classList.add('hidden');
@@ -828,7 +1061,6 @@
               🔊
             </button>
           </div>
-          <p class="text-gray-500 mb-6 text-sm"></p>
           <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
             ${options.map(opt => `
               <button translate="no" onclick="checkAnswer('${opt.en}', '${word.en}')" 
@@ -903,9 +1135,9 @@
 
     function checkAnswer(answer, correct) {
       const isCorrect = answer.toLowerCase() === correct.toLowerCase();
-      if (isCorrect) { gameState.score += 10; showFeedback(true); stats.words++; } else { showFeedback(false); }
+      if (isCorrect) { gameState.score += 10; showFeedback(true); userProfile.words++; } else { showFeedback(false); }
       gameState.round++;
-      updateStats(); // Автоматически сохраняем прогресс при каждом ответе
+      updateStats();
       setTimeout(showQuestion, 1000);
     }
 
@@ -919,8 +1151,9 @@
     }
 
     function endGame() {
-      stats.games++; stats.score += gameState.score;
-      updateStats(); // Сохраняем после окончания игры
+      userProfile.games++; 
+      userProfile.score += gameState.score;
+      updateStats();
       const content = document.getElementById('game-content');
       content.innerHTML = `
         <div class="text-center py-8">
@@ -934,22 +1167,20 @@
     }
 
     function updateStats() {
-      // Выводим цифры на экран
-      document.getElementById('stat-words').textContent = stats.words;
-      document.getElementById('stat-games').textContent = stats.games;
-      document.getElementById('stat-score').textContent = stats.score;
+      localStorage.setItem('foxy_words', userProfile.words);
+      localStorage.setItem('foxy_games', userProfile.games);
+      localStorage.setItem('foxy_score', userProfile.score);
 
-      // Сохраняем в localStorage устройства пользователя
-      localStorage.setItem('foxy_words', stats.words);
-      localStorage.setItem('foxy_games', stats.games);
-      localStorage.setItem('foxy_score', stats.score);
+      if (currentSection === 'account') {
+        loadAccountData();
+      }
     }
 
     initSDK();
     setLanguage('ru');
     renderDictionary();
     renderQuickWords();
-    updateStats(); // Вызываем сразу при загрузке страницы, чтобы отобразить сохранённые данные
+    renderCardsCollection();
   </script>
  </body>
 </html>
