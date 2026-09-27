@@ -108,7 +108,7 @@
      <button onclick="showSection('games')" class="nav-btn flex-1 min-w-max px-4 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="games"> <span class="text-xl">🎮</span> <span data-text="games">Игры</span> </button> 
      <button onclick="showSection('dictionary')" class="nav-btn flex-1 min-w-max px-4 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="dictionary"> <span class="text-xl">📚</span> <span data-text="dictionary">Словарь</span> </button> 
      <button onclick="showSection('translator')" class="nav-btn flex-1 min-w-max px-4 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="translator"> <span class="text-xl">🔄</span> <span data-text="translator">Переводчик</span> </button>
-     <button onclick="showSection('cards')" class="nav-btn flex-1 min-w-max px-4 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="cards"> <span class="text-xl">🎴</span> <span data-text="cards_nav">Карточки</span> </button>
+     <button onclick="showSection('cards')" class="nav-btn flex-1 min-w-max px-4 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="cards"> <span class="text-xl">🎴</span> <span data-text="cards_nav">Коллекция</span> </button>
      <button onclick="showSection('account')" class="nav-btn flex-1 min-w-max px-4 py-4 font-bold text-gray-600 hover:bg-orange-50 transition" data-section="account"> <span class="text-xl">👤</span> <span data-text="account_nav">Аккаунт</span> </button>
     </div>
    </nav>
@@ -144,7 +144,10 @@
 
     <!-- ИГРЫ -->
     <section id="section-games" class="section hidden">
-     <h2 class="text-3xl font-black text-orange-600 mb-8 text-center" data-text="choose_game">Выбери игру!</h2>
+     <div class="text-center mb-6">
+      <img src="IMG_7773.png" alt="Games Illustration" class="h-40 mx-auto object-contain mb-4">
+      <h2 class="text-3xl font-black text-orange-600 text-center" data-text="choose_game">Выбери игру!</h2>
+     </div>
      <div id="games-menu" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div class="bg-white rounded-3xl p-6 card-shadow game-card transition-all cursor-pointer hover:border-4 hover:border-orange-400" onclick="startGame('emoji')">
        <div class="text-5xl mb-4 text-center">😀➡️🔤</div>
@@ -191,7 +194,10 @@
 
     <!-- СЛОВАРЬ -->
     <section id="section-dictionary" class="section hidden">
-     <h2 class="text-3xl font-black text-orange-600 mb-6 text-center" data-text="dictionary_title">📚 Секция Семья</h2>
+     <div class="text-center mb-6">
+      <img src="IMG_7771.png" alt="Dictionary Illustration" class="h-40 mx-auto object-contain mb-4">
+      <h2 class="text-3xl font-black text-orange-600 text-center" data-text="dictionary_title">📚 Секция Семья</h2>
+     </div>
      <div class="mb-6">
       <input type="text" id="dict-search" oninput="filterDictionary()" placeholder="Поиск..." class="w-full px-6 py-4 rounded-full border-2 border-orange-200 focus:border-orange-400 focus:outline-none text-lg">
      </div>
@@ -252,11 +258,12 @@
      </div>
     </section>
 
-    <!-- КОЛЛЕКЦИОННЫЕ КАРТОЧКИ (НОВЫЙ РАЗДЕЛ) -->
+    <!-- КОЛЛЕКЦИОННЫЕ КАРТОЧКИ (КОЛЛЕКЦИЯ) -->
     <section id="section-cards" class="section hidden">
-     <div class="text-center mb-8">
+     <div class="text-center mb-6">
+      <img src="IMG_7772.png" alt="Collection Illustration" class="h-44 mx-auto object-contain mb-4">
       <h2 class="text-3xl font-black text-orange-600 mb-2" data-text="cards_section_title">🎴 Уникальные коллекционные карточки</h2>
-      <p class="text-gray-600" data-text="cards_section_desc">Открывай бустеры за свои очки, собирай редкие карточки Фокси и друзей!</p>
+      <p class="text-gray-600 max-w-xl mx-auto" data-text="cards_section_desc">Открывай бустеры за свои очки, собирай редкие карточки Фокси и друзей!</p>
      </div>
      
      <div class="bg-gradient-to-r from-orange-400 to-orange-500 rounded-3xl p-6 text-white text-center mb-8 shadow-lg flex flex-col md:flex-row items-center justify-between gap-4">
@@ -269,13 +276,13 @@
 
      <div class="mb-4 flex justify-between items-center">
       <h3 class="text-xl font-bold text-gray-700" data-text="my_collection">Моя коллекция</h3>
-      <span id="collection-counter" class="bg-orange-100 text-orange-600 font-bold px-4 py-1 rounded-full text-sm">0 / 8</span>
+      <span id="collection-counter" class="bg-orange-100 text-orange-600 font-bold px-4 py-1 rounded-full text-sm">0 / 12</span>
      </div>
 
      <div id="cards-grid" class="grid grid-cols-2 md:grid-cols-4 gap-6"></div>
     </section>
 
-    <!-- АККАУНТ И ПРОФИЛЬ (НОВЫЙ РАЗДЕЛ) -->
+    <!-- АККАУНТ И ПРОФИЛЬ -->
     <section id="section-account" class="section hidden">
      <div class="max-w-2xl mx-auto bg-white rounded-3xl p-8 card-shadow">
       <h2 class="text-3xl font-black text-orange-600 mb-6 text-center" data-text="account_title">👤 Твой аккаунт</h2>
@@ -293,21 +300,23 @@
         <div class="flex justify-center gap-3 flex-wrap">
          <img src="IMG_6666.png" onclick="setAvatar('IMG_6666.png')" class="w-14 h-14 rounded-full cursor-pointer hover:scale-110 border-2 border-orange-300 object-cover">
          <img src="IMG_6667.png" onclick="setAvatar('IMG_6667.png')" class="w-14 h-14 rounded-full cursor-pointer hover:scale-110 border-2 border-orange-300 object-cover">
-         <img src="IMG_6661.png" onclick="setAvatar('IMG_6661.png')" class="w-14 h-14 rounded-full cursor-pointer hover:scale-110 border-2 border-orange-300 object-cover">
          <img src="IMG_6662.png" onclick="setAvatar('IMG_6662.png')" class="w-14 h-14 rounded-full cursor-pointer hover:scale-110 border-2 border-orange-300 object-cover">
+         <img src="IMG_7771.png" onclick="setAvatar('IMG_7771.png')" class="w-14 h-14 rounded-full cursor-pointer hover:scale-110 border-2 border-orange-300 object-cover">
+         <img src="IMG_7772.png" onclick="setAvatar('IMG_7772.png')" class="w-14 h-14 rounded-full cursor-pointer hover:scale-110 border-2 border-orange-300 object-cover">
+         <img src="IMG_7773.png" onclick="setAvatar('IMG_7773.png')" class="w-14 h-14 rounded-full cursor-pointer hover:scale-110 border-2 border-orange-300 object-cover">
         </div>
        </div>
 
        <div class="max-w-xs mx-auto">
         <label class="block text-gray-500 text-sm font-bold mb-1" data-text="nickname_label">Твой никнейм:</label>
         <div class="flex gap-2">
-         <input type="text" id="username-input" class="w-full px-4 py-2 rounded-xl border-2 border-orange-200 focus:border-orange-400 focus:outline-none font-bold text-center text-orange-600" placeholder="Фоксик">
+         <input type="text" id="username-input" class="w-full px-4 py-2 rounded-xl border-2 border-orange-200 focus:border-orange-400 focus:outline-none font-bold text-center text-orange-600" placeholder="">
          <button onclick="saveUsername()" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-4 py-2 rounded-xl transition" data-text="save_btn">Сохранить</button>
         </div>
        </div>
       </div>
 
-      <!-- Рейтинг и статистика (перенесено сюда) -->
+      <!-- Рейтинг и статистика -->
       <h3 class="text-xl font-bold text-gray-700 mb-4 text-center" data-text="rating_stats_title">🏆 Твоя статистика и рейтинг</h3>
       <div class="grid grid-cols-3 gap-4 mb-8 text-center">
        <div class="bg-orange-100/60 rounded-2xl p-4">
@@ -445,21 +454,97 @@
       { en: 'learn', ru: 'учиться', kz: 'үйрену', emoji: '📚', category: 'actions' }
     ];
 
-    // Коллекционные карточки
+    // Расширенные коллекционные карточки с поддержкой переводов
     const allCollectibleCards = [
-      { id: 1, name: 'Фокси Студент', rarity: 'common', emoji: '🦊', desc: 'Обычный маскот, любит учить слова.' },
-      { id: 2, name: 'Кот Ученый', rarity: 'common', emoji: '🐱', desc: 'Знает ответы на все грамматические вопросы.' },
-      { id: 3, name: 'Золотая Звезда', rarity: 'rare', emoji: '⭐', desc: 'Награда за успешную игру в викторинах.' },
-      { id: 4, name: 'Супер Книга', rarity: 'rare', emoji: '📖', desc: 'Сборник из 100 важных английских слов.' },
-      { id: 5, name: 'Ракета Прогресса', rarity: 'epic', emoji: '🚀', desc: 'Символ быстрого роста знаний.' },
-      { id: 6, name: 'Алмазный Кубок', rarity: 'epic', emoji: '🏆', desc: 'Для лучших игроков платформы 100WORDS.' },
-      { id: 7, name: 'Король Фокси', rarity: 'legendary', emoji: '👑🦊', desc: 'Легендарный правитель мира английского языка.' },
-      { id: 8, name: 'Магический Кристалл', rarity: 'legendary', emoji: '💎', desc: 'Редчайший артефакт мудрости.' }
+      { 
+        id: 1, 
+        emoji: '🦊', 
+        rarity: 'common', 
+        name: { ru: 'Фокси Студент', kz: 'Фокси Студент', en: 'Student Foxy' }, 
+        desc: { ru: 'Обычный маскот, любит учить слова.', kz: 'Қарапайым маскот, сөз жаттағанды жақсы көреді.', en: 'Ordinary mascot, loves learning words.' } 
+      },
+      { 
+        id: 2, 
+        emoji: '🐱', 
+        rarity: 'common', 
+        name: { ru: 'Кот Ученый', kz: 'Ғалым Мысық', en: 'Sci-Cat' }, 
+        desc: { ru: 'Знает ответы на все грамматические вопросы.', kz: 'Барлық грамматикалық сұрақтардың жауабын біледі.', en: 'Knows answers to all grammar questions.' } 
+      },
+      { 
+        id: 3, 
+        emoji: '⭐', 
+        rarity: 'rare', 
+        name: { ru: 'Золотая Звезда', kz: 'Алтын Жұлдыз', en: 'Golden Star' }, 
+        desc: { ru: 'Награда за успешную игру в викторинах.', kz: 'Викториналардағы табысты ойын үшін марапат.', en: 'Reward for successful quiz games.' } 
+      },
+      { 
+        id: 4, 
+        emoji: '📖', 
+        rarity: 'rare', 
+        name: { ru: 'Супер Книга', kz: 'Супер Кітап', en: 'Super Book' }, 
+        desc: { ru: 'Сборник из 100 важных английских слов.', kz: '100 маңызды ағылшын сөзінің жинағы.', en: 'A collection of 100 important English words.' } 
+      },
+      { 
+        id: 5, 
+        emoji: '🚀', 
+        rarity: 'epic', 
+        name: { ru: 'Ракета Прогресса', kz: 'Прогресс Ракетасы', en: 'Progress Rocket' }, 
+        desc: { ru: 'Символ быстрого роста знаний.', kz: 'Білімнің жылдам өсу символы.', en: 'Symbol of rapid knowledge growth.' } 
+      },
+      { 
+        id: 6, 
+        emoji: '🏆', 
+        rarity: 'epic', 
+        name: { ru: 'Алмазный Кубок', kz: 'Гауһар Кубок', en: 'Diamond Trophy' }, 
+        desc: { ru: 'Для лучших игроков платформы 100WORDS.', kz: '100WORDS платформасының үздік ойыншыларына арналған.', en: 'For the best players of 100WORDS.' } 
+      },
+      { 
+        id: 7, 
+        emoji: '👑🦊', 
+        rarity: 'legendary', 
+        name: { ru: 'Король Фокси', kz: 'Фокси Патша', en: 'King Foxy' }, 
+        desc: { ru: 'Легендарный правитель мира английского языка.', kz: 'Ағылшын тілі әлемінің аңызға айналған билеушісі.', en: 'Legendary ruler of the English language world.' } 
+      },
+      { 
+        id: 8, 
+        emoji: '💎', 
+        rarity: 'legendary', 
+        name: { ru: 'Магический Кристалл', kz: 'Сиқырлы Кристалл', en: 'Magic Crystal' }, 
+        desc: { ru: 'Редчайший артефакт мудрости.', kz: 'Даналықтың ең сирек артефактісі.', en: 'The rarest artifact of wisdom.' } 
+      },
+      { 
+        id: 9, 
+        emoji: '⚡', 
+        rarity: 'rare', 
+        name: { ru: 'Энергия Знаний', kz: 'Білім Энергиясы', en: 'Energy of Knowledge' }, 
+        desc: { ru: 'Заряжает на быстрый перевор слов.', kz: 'Сөздерді жылдам аударуға зарядтайды.', en: 'Charges you up for quick learning.' } 
+      },
+      { 
+        id: 10, 
+        emoji: '🎨', 
+        rarity: 'common', 
+        name: { ru: 'Арт Мастер', kz: 'Арт Шебері', en: 'Art Master' }, 
+        desc: { ru: 'Помогает запоминать слова через образы.', kz: 'Сөздерді бейнелер арқылы есте сақтауға көмектеседі.', en: 'Helps remember words through imagery.' } 
+      },
+      { 
+        id: 11, 
+        emoji: '🌟', 
+        rarity: 'epic', 
+        name: { ru: 'Супер Звезда', kz: 'Супер Жұлдыз', en: 'Super Star' }, 
+        desc: { ru: 'Сияет ярче всех при изучении языков.', kz: 'Тіл үйренгенде барлығынан жарқын көрінеді.', en: 'Shines brightest when learning languages.' } 
+      },
+      { 
+        id: 12, 
+        emoji: '🔥', 
+        rarity: 'legendary', 
+        name: { ru: 'Огненный Стрик', kz: 'Отты Стрик', en: 'Fire Streak' }, 
+        desc: { ru: 'Символ ежедневных побед и занятий.', kz: 'Күнделікті жеңістер мен сабақтардың символы.', en: 'Symbol of daily wins and practice.' } 
+      }
     ];
 
     const translations = {
       ru: {
-        home: 'Главная', games: 'Игры', dictionary: 'Словарь', translator: 'Переводчик', cards_nav: 'Карточки', account_nav: 'Аккаунт',
+        home: 'Главная', games: 'Игры', dictionary: 'Словарь', translator: 'Переводчик', cards_nav: 'Коллекция', account_nav: 'Аккаунт',
         welcome: 'Привет! Я Фокси!', welcome_desc: 'Давай вместе учить английский язык в 100WORDS ! Выбирай игру и начинай!',
         play_games: 'Играть', play_games_desc: '5 веселых игр',
         learn_words: 'Учить слова', learn_words_desc: '100 важных слов',
@@ -498,7 +583,7 @@
         rarity_common: 'Обычная', rarity_rare: 'Редкая', rarity_epic: 'Эпическая', rarity_legendary: 'Легендарная'
       },
       kz: {
-        home: 'Басты', games: 'Ойындар', dictionary: 'Сөздік', translator: 'Аудармашы', cards_nav: 'Карточкалар', account_nav: 'Аккаунт',
+        home: 'Басты', games: 'Ойындар', dictionary: 'Сөздік', translator: 'Аудармашы', cards_nav: 'Коллекция', account_nav: 'Аккаунт',
         welcome: 'Сәлем! Мен Фоксимін!', welcome_desc: 'Бірге ағылшын тілін үйренейік 100WORDS ! Ойынды таңда және баста!',
         play_games: 'Ойнау', play_games_desc: '5 қызықты ойын',
         learn_words: 'Сөз үйрену', learn_words_desc: '100 маңызды сөз',
@@ -529,7 +614,7 @@
         my_collection: 'Менің жинағым',
         account_title: '👤 Сіздің аккаунт',
         select_avatar: 'Аватар таңдаңыз:',
-        nickname_label: 'Блақап атыңыз (Ник):',
+        nickname_label: 'Лақап атыңыз (Ник):',
         save_btn: 'Сақтау',
         rating_stats_title: '🏆 Статистика мен рейтинг',
         words_learned: 'сөз үйренілді', games_played: 'ойын ойналды', total_points: 'барлық ұпай',
@@ -537,7 +622,7 @@
         rarity_common: 'Қарапайым', rarity_rare: 'Сирек', rarity_epic: 'Эпикалық', rarity_legendary: 'Аңызға айналған'
       },
       en: {
-        home: 'Home', games: 'Games', dictionary: 'Dictionary', translator: 'Translator', cards_nav: 'Cards', account_nav: 'Account',
+        home: 'Home', games: 'Games', dictionary: 'Dictionary', translator: 'Translator', cards_nav: 'Collection', account_nav: 'Account',
         welcome: 'Hi! I\'m Foxy!', welcome_desc: 'Let\'s learn English together with 100WORDS ! Choose a game and start!',
         play_games: 'Play', play_games_desc: '5 fun games',
         learn_words: 'Learn words', learn_words_desc: '100 important words',
@@ -585,14 +670,14 @@
       questions: [], memoryCards: [], flippedCards: [], matchedPairs: 0
     };
     
-    // Профиль пользователя и статистика
+    // Профиль пользователя и статистика (ник пустой по умолчанию)
     let userProfile = {
-      username: localStorage.getItem('foxy_username') || 'Yerken',
+      username: localStorage.getItem('foxy_username') || '',
       avatar: localStorage.getItem('foxy_avatar') || 'IMG_6666.png',
       words: parseInt(localStorage.getItem('foxy_words')) || 0,
       games: parseInt(localStorage.getItem('foxy_games')) || 0,
       score: parseInt(localStorage.getItem('foxy_score')) || 0,
-      inventory: JSON.parse(localStorage.getItem('foxy_inventory')) || [1] // 1 карточка открыта по умолчанию
+      inventory: JSON.parse(localStorage.getItem('foxy_inventory')) || [1]
     };
 
     const defaultConfig = {
@@ -682,7 +767,6 @@
       if (section === 'games') exitGame();
     }
 
-    // Управление профилем и аккаунтом
     function loadAccountData() {
       document.getElementById('username-input').value = userProfile.username;
       document.getElementById('current-avatar').src = userProfile.avatar;
@@ -706,24 +790,21 @@
 
     function saveUsername() {
       const newName = document.getElementById('username-input').value.trim();
-      if (newName) {
-        userProfile.username = newName;
-        localStorage.setItem('foxy_username', newName);
-        alert('Никнейм успешно сохранен!');
-      }
+      userProfile.username = newName;
+      localStorage.setItem('foxy_username', newName);
+      alert(currentLang === 'kz' ? 'Лақап атыңыз сәтті сақталды!' : 'Никнейм успешно сохранен!');
     }
 
     function resetProgress() {
-      if (confirm('Вы уверены, что хотите сбросить весь прогресс?')) {
+      if (confirm(currentLang === 'kz' ? 'Барлық прогресті жойғыңыз келетініне сенімдісіз бе?' : 'Вы уверены, что хотите сбросить весь прогресс?')) {
         localStorage.clear();
-        userProfile = { username: 'Yerken', avatar: 'IMG_6666.png', words: 0, games: 0, score: 0, inventory: [1] };
+        userProfile = { username: '', avatar: 'IMG_6666.png', words: 0, games: 0, score: 0, inventory: [1] };
         updateStats();
         loadAccountData();
         renderCardsCollection();
       }
     }
 
-    // Коллекционные карточки
     function renderCardsCollection() {
       const grid = document.getElementById('cards-grid');
       const counter = document.getElementById('collection-counter');
@@ -739,6 +820,8 @@
       grid.innerHTML = allCollectibleCards.map(card => {
         const isUnlocked = userProfile.inventory.includes(card.id);
         const rarityText = translations[currentLang][`rarity_${card.rarity}`] || card.rarity;
+        const cardName = card.name[currentLang] || card.name.ru;
+        const cardDesc = card.desc[currentLang] || card.desc.ru;
 
         if (!isUnlocked) {
           return `
@@ -758,8 +841,8 @@
             </div>
             <div class="text-5xl my-3">${card.emoji}</div>
             <div>
-              <h4 class="font-black text-base mb-1">${card.name}</h4>
-              <p class="text-xs opacity-75">${card.desc}</p>
+              <h4 class="font-black text-base mb-1">${cardName}</h4>
+              <p class="text-xs opacity-75">${cardDesc}</p>
             </div>
           </div>
         `;
@@ -774,7 +857,6 @@
       userProfile.score -= 50;
       updateStats();
 
-      // Выпадение случайной карточки
       const lockedCards = allCollectibleCards.filter(c => !userProfile.inventory.includes(c.id));
       let rewardCard;
       if (lockedCards.length > 0) {
@@ -783,12 +865,13 @@
         localStorage.setItem('foxy_inventory', JSON.stringify(userProfile.inventory));
       } else {
         rewardCard = allCollectibleCards[Math.floor(Math.random() * allCollectibleCards.length)];
-        userProfile.score += 20; // Компенсация если все карточки собраны
+        userProfile.score += 20;
         updateStats();
       }
 
       renderCardsCollection();
-      alert(`🎉 Поздравляем! Вам выпала карточка: "${rewardCard.name}" (${rewardCard.emoji})`);
+      const cardName = rewardCard.name[currentLang] || rewardCard.name.ru;
+      alert(`🎉 Поздравляем! Вам выпала карточка: "${cardName}" (${rewardCard.emoji})`);
     }
 
     function renderDictionary() {
