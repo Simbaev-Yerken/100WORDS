@@ -276,7 +276,7 @@
 
      <div class="mb-4 flex justify-between items-center">
       <h3 class="text-xl font-bold text-gray-700" data-text="my_collection">Моя коллекция</h3>
-      <span id="collection-counter" class="bg-orange-100 text-orange-600 font-bold px-4 py-1 rounded-full text-sm">0 / 40</span>
+      <span id="collection-counter" class="bg-orange-100 text-orange-600 font-bold px-4 py-1 rounded-full text-sm">0 / 12</span>
      </div>
 
      <div id="cards-grid" class="grid grid-cols-2 md:grid-cols-4 gap-6"></div>
@@ -307,17 +307,12 @@
         </div>
        </div>
 
-       <div class="max-w-xs mx-auto mb-4">
+       <div class="max-w-xs mx-auto">
         <label class="block text-gray-500 text-sm font-bold mb-1" data-text="nickname_label">Твой никнейм:</label>
         <div class="flex gap-2">
          <input type="text" id="username-input" class="w-full px-4 py-2 rounded-xl border-2 border-orange-200 focus:border-orange-400 focus:outline-none font-bold text-center text-orange-600" placeholder="">
          <button onclick="saveUsername()" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-4 py-2 rounded-xl transition" data-text="save_btn">Сохранить</button>
         </div>
-       </div>
-
-       <!-- Отображение Лиги -->
-       <div id="league-badge" class="inline-flex items-center gap-2 px-5 py-2 rounded-full font-black text-sm shadow-md bg-amber-100 text-amber-800">
-         <span id="league-icon">🥉</span> <span id="league-name">Бронзовая лига</span>
        </div>
       </div>
 
@@ -459,51 +454,92 @@
       { en: 'learn', ru: 'учиться', kz: 'үйрену', emoji: '📚', category: 'actions' }
     ];
 
-    // 40 коллекционных карточек с разной редкостью
+    // Расширенные коллекционные карточки с поддержкой переводов
     const allCollectibleCards = [
-      { id: 1, emoji: '🦊', rarity: 'common', name: { ru: 'Фокси Студент', kz: 'Фокси Студент', en: 'Student Foxy' }, desc: { ru: 'Обычный маскот, любит учить слова.', kz: 'Қарапайым маскот.', en: 'Ordinary mascot.' } },
-      { id: 2, emoji: '🐱', rarity: 'common', name: { ru: 'Кот Ученый', kz: 'Ғалым Мысық', en: 'Sci-Cat' }, desc: { ru: 'Знает ответы по грамматике.', kz: 'Грамматика біледі.', en: 'Knows grammar.' } },
-      { id: 3, emoji: '⭐', rarity: 'common', name: { ru: 'Искорка', kz: 'Ұшқын', en: 'Spark' }, desc: { ru: 'Первый шаг к знаниям.', kz: 'Білімге алғашқы қадам.', en: 'First step.' } },
-      { id: 4, emoji: '📖', rarity: 'common', name: { ru: 'Блокнот', kz: 'Блокнот', en: 'Notebook' }, desc: { ru: 'Для запиши новых слов.', kz: 'Жаңа сөздер үшін.', en: 'For new words.' } },
-      { id: 5, emoji: '✏️', rarity: 'common', name: { ru: 'Карандаш', kz: 'Қарындаш', en: 'Pencil' }, desc: { ru: 'Всегда готов писать.', kz: 'Жазуға дайын.', en: 'Always ready.' } },
-      { id: 6, emoji: '🎒', rarity: 'common', name: { ru: 'Школьный рюкзак', kz: 'Мектеп сөмкесі', en: 'School Backpack' }, desc: { ru: 'С ним удобно учиться.', kz: 'Оқуға ыңғайлы.', en: 'Good for school.' } },
-      { id: 7, emoji: '🍎', rarity: 'common', name: { ru: 'Яблоко знаний', kz: 'Білім алмасы', en: 'Knowledge Apple' }, desc: { ru: 'Полезный перекус ученика.', kz: 'Пайдалы тағам.', en: 'Healthy snack.' } },
-      { id: 8, emoji: '🟢', rarity: 'common', name: { ru: 'Зеленый круг', kz: 'Жасыл шеңбер', en: 'Green Circle' }, desc: { ru: 'Знак верного ответа.', kz: 'Дұрыс жауап.', en: 'Correct sign.' } },
-      { id: 9, emoji: '🔵', rarity: 'common', name: { ru: 'Синяя точка', kz: 'Көк нүкте', en: 'Blue Dot' }, desc: { ru: 'Капля спокойствия.', kz: 'Тыныштық.', en: 'Calm drop.' } },
-      { id: 10, emoji: '☕', rarity: 'common', name: { ru: 'Чай бодрости', kz: 'Сергектік шайы', en: 'Tea' }, desc: { ru: 'Помогает не уснуть за уроками.', kz: 'Ұйықтамауға көмектеседі.', en: 'Keeps you awake.' } },
-      
-      { id: 11, emoji: '🎯', rarity: 'rare', name: { ru: 'Меткий стрелок', kz: 'Мерген', en: 'Sharp Shooter' }, desc: { ru: 'Всегда попадаешь в ответы.', kz: 'Әрқашан дәл тиесің.', en: 'Always accurate.' } },
-      { id: 12, emoji: '🎨', rarity: 'rare', name: { ru: 'Арт Мастер', kz: 'Арт Шебері', en: 'Art Master' }, desc: { ru: 'Помогает запоминать через образы.', kz: 'Бейнелер арқылы жаттау.', en: 'Visual memory.' } },
-      { id: 13, emoji: '⚡', rarity: 'rare', name: { ru: 'Энергия Знаний', kz: 'Білім Энергиясы', en: 'Energy' }, desc: { ru: 'Заряд на быстрый перевод.', kz: 'Жылдам аударма.', en: 'Fast translation.' } },
-      { id: 14, emoji: '🎧', rarity: 'rare', name: { ru: 'Аудиофил', kz: 'Аудиофил', en: 'Audiophile' }, desc: { ru: 'Отлично воспринимаешь на слух.', kz: 'Құлақпен қабылдау.', en: 'Good listening.' } },
-      { id: 15, emoji: '💡', rarity: 'rare', name: { ru: 'Яркая Идея', kz: 'Жарқын идея', en: 'Bright Idea' }, desc: { ru: 'Когда понял правило.', kz: 'Ережені түсінгенде.', en: 'Rule understood.' } },
-      { id: 16, emoji: '⏱️', rarity: 'rare', name: { ru: 'Быстрый ум', kz: 'Жылдам ой', en: 'Fast Mind' }, desc: { ru: 'Решаешь задачи на скорость.', kz: 'Жылдам шешу.', en: 'Speed solving.' } },
-      { id: 17, emoji: '🧩', rarity: 'rare', name: { ru: 'Пазл слов', kz: 'Сөз пазлы', en: 'Word Puzzle' }, desc: { ru: 'Слагай слова правильно.', kz: 'Сөз құрастыру.', en: 'Word building.' } },
-      { id: 18, emoji: '🔍', rarity: 'rare', name: { ru: 'Детектив', kz: 'Детектив', en: 'Detective' }, desc: { ru: 'Находишь любые пары в памяти.', kz: 'Жұптарды табу.', en: 'Finding pairs.' } },
-      { id: 19, emoji: '🛡️', rarity: 'rare', name: { ru: 'Щит ученика', kz: 'Оқушы қалқаны', en: 'Shield' }, desc: { ru: 'Защита от ошибок в тестах.', kz: 'Қателерден қорғау.', en: 'Error defense.' } },
-      { id: 20, emoji: '🍀', rarity: 'rare', name: { ru: 'Клевер Удачи', kz: 'Сәттілік жоңышқасы', en: 'Lucky Clover' }, desc: { ru: 'Помогает при угадывании.', kz: 'Болжауда көмек.', en: 'Luck booster.' } },
-
-      { id: 21, emoji: '🚀', rarity: 'epic', name: { ru: 'Ракета Прогресса', kz: 'Прогресс Ракетасы', en: 'Progress Rocket' }, desc: { ru: 'Символ быстрого роста знаний.', kz: 'Білімнің өсуі.', en: 'Rapid growth.' } },
-      { id: 22, emoji: '🏆', rarity: 'epic', name: { ru: 'Алмазный Кубок', kz: 'Гауһар Кубок', en: 'Diamond Trophy' }, desc: { ru: 'Для лучших игроков 100WORDS.', kz: 'Үздік ойыншыларға.', en: 'Best players.' } },
-      { id: 23, emoji: '🌟', rarity: 'epic', name: { ru: 'Супер Звезда', kz: 'Супер Жұлдыз', en: 'Super Star' }, desc: { ru: 'Сияет ярче всех при учебе.', kz: 'Жарқын жұлдыз.', en: 'Brightest star.' } },
-      { id: 24, emoji: '🔮', rarity: 'epic', name: { ru: 'Шар Предсказаний', kz: 'Болжам шары', en: 'Magic Orb' }, desc: { ru: 'Видишь правильный ответ заранее.', kz: 'Алдын ала білу.', en: 'Foresight.' } },
-      { id: 25, emoji: '🎖️', rarity: 'epic', name: { ru: 'Медаль Почета', kz: 'Құрмет медалі', en: 'Medal of Honor' }, desc: { ru: 'За активное изучение языков.', kz: 'Белсенділік үшін.', en: 'Active study.' } },
-      { id: 26, emoji: '🦊👑', rarity: 'epic', name: { ru: 'Принц Фокси', kz: 'Фокси Ханзадасы', en: 'Prince Foxy' }, desc: { ru: 'Наследник языкового престола.', kz: 'Тіл тағының мұрагері.', en: 'Heir to throne.' } },
-      { id: 27, emoji: '📚✨', rarity: 'epic', name: { ru: 'Магический фолиант', kz: 'Сиқырлы кітап', en: 'Magic Tome' }, desc: { ru: 'Содержит тайны перевода.', kz: 'Аударма құпиялары.', en: 'Translation secrets.' } },
-      { id: 28, emoji: '🦄', rarity: 'epic', name: { ru: 'Языковой Единорог', kz: 'Тілдік Жлқымүйіз', en: 'Language Unicorn' }, desc: { ru: 'Редчайшее создание воображения.', kz: 'Сирек кездесетін туынды.', en: 'Rare creature.' } },
-      { id: 29, emoji: '🗝️', rarity: 'epic', name: { ru: 'Ключ к Знаниям', kz: 'Білім кілті', en: 'Key to Knowledge' }, desc: { ru: 'Открывает любые закрытые двери.', kz: 'Барлық есікті ашады.', en: 'Opens all doors.' } },
-      { id: 30, emoji: '🌠', rarity: 'epic', name: { ru: 'Падающая Звезда', kz: 'Аққан жұлдыз', en: 'Shooting Star' }, desc: { ru: 'Загадай желание и учи слова.', kz: 'Тілек тіле.', en: 'Make a wish.' } },
-
-      { id: 31, emoji: '👑🦊', rarity: 'legendary', name: { ru: 'Король Фокси', kz: 'Фокси Патша', en: 'King Foxy' }, desc: { ru: 'Легендарный правитель мира английского.', kz: 'Әлем билеушісі.', en: 'Legendary ruler.' } },
-      { id: 32, emoji: '💎', rarity: 'legendary', name: { ru: 'Магический Кристалл', kz: 'Сиқырлы Кристалл', en: 'Magic Crystal' }, desc: { ru: 'Редчайший артефакт абсолютной мудрости.', kz: 'Ең сирек артефакт.', en: 'Rare artifact.' } },
-      { id: 33, emoji: '🔥', rarity: 'legendary', name: { ru: 'Огненный Стрик', kz: 'Отты Стрик', en: 'Fire Streak' }, desc: { ru: 'Символ ежедневных непобедимых побед.', kz: 'Күнделікті жеңіс.', en: 'Daily wins.' } },
-      { id: 34, emoji: '⚡🌟', rarity: 'legendary', name: { ru: 'Божественная Молния', kz: 'Құдай Найзағайы', en: 'Divine Lightning' }, desc: { ru: 'Сила мгновенного запоминания.', kz: 'Лезде есте сақтау.', en: 'Instant memory.' } },
-      { id: 35, emoji: '🌌', rarity: 'legendary', name: { ru: 'Космический Разум', kz: 'Ғарыштық сана', en: 'Cosmic Mind' }, desc: { ru: 'Постиг все 100WORDS вселенной.', kz: 'Барлық әлемді меңгерді.', en: 'Mastered universe.' } },
-      { id: 36, emoji: '🐉', rarity: 'legendary', name: { ru: 'Дракон Мудрости', kz: 'Даналық Айдаһары', en: 'Wisdom Dragon' }, desc: { ru: 'Охраняет сокровища словарного запаса.', kz: 'Сөздік қорын қорғайды.', en: 'Guards vocabulary.' } },
-      { id: 37, emoji: '🌟💎', rarity: 'legendary', name: { ru: 'Алмазная Звезда', kz: 'Гауһар Жұлдыз', en: 'Diamond Star' }, desc: { ru: 'Сияние совершенства в английском.', kz: 'Ағылшындағы кемелдік.', en: 'Perfection.' } },
-      { id: 38, emoji: '⏳✨', rarity: 'legendary', name: { ru: 'Песочные Часы Времени', kz: 'Уақыт Сағаты', en: 'Time Hourglass' }, desc: { ru: 'Позволяет учить слова сквозь эпохи.', kz: 'Замандар арқылы оқу.', en: 'Learn through time.' } },
-      { id: 39, emoji: '🔮👑', rarity: 'legendary', name: { ru: 'Скипетр Мудреца', kz: 'Данагер Скипетрі', en: 'Scepter' }, desc: { ru: 'Знак главного магистра языков.', kz: 'Бас магистр белгісі.', en: 'Grandmaster sign.' } },
-      { id: 40, emoji: '🔥🦊💎', rarity: 'legendary', name: { ru: 'Абсолютный Фокси', kz: 'Абсолютті Фокси', en: 'Ultimate Foxy' }, desc: { ru: 'Легенда среди всех легенд 100WORDS.', kz: 'Барлық аңыздардың аңызы.', en: 'Legend of legends.' } }
+      { 
+        id: 1, 
+        emoji: '🦊', 
+        rarity: 'common', 
+        name: { ru: 'Фокси Студент', kz: 'Фокси Студент', en: 'Student Foxy' }, 
+        desc: { ru: 'Обычный маскот, любит учить слова.', kz: 'Қарапайым маскот, сөз жаттағанды жақсы көреді.', en: 'Ordinary mascot, loves learning words.' } 
+      },
+      { 
+        id: 2, 
+        emoji: '🐱', 
+        rarity: 'common', 
+        name: { ru: 'Кот Ученый', kz: 'Ғалым Мысық', en: 'Sci-Cat' }, 
+        desc: { ru: 'Знает ответы на все грамматические вопросы.', kz: 'Барлық грамматикалық сұрақтардың жауабын біледі.', en: 'Knows answers to all grammar questions.' } 
+      },
+      { 
+        id: 3, 
+        emoji: '⭐', 
+        rarity: 'rare', 
+        name: { ru: 'Золотая Звезда', kz: 'Алтын Жұлдыз', en: 'Golden Star' }, 
+        desc: { ru: 'Награда за успешную игру в викторинах.', kz: 'Викториналардағы табысты ойын үшін марапат.', en: 'Reward for successful quiz games.' } 
+      },
+      { 
+        id: 4, 
+        emoji: '📖', 
+        rarity: 'rare', 
+        name: { ru: 'Супер Книга', kz: 'Супер Кітап', en: 'Super Book' }, 
+        desc: { ru: 'Сборник из 100 важных английских слов.', kz: '100 маңызды ағылшын сөзінің жинағы.', en: 'A collection of 100 important English words.' } 
+      },
+      { 
+        id: 5, 
+        emoji: '🚀', 
+        rarity: 'epic', 
+        name: { ru: 'Ракета Прогресса', kz: 'Прогресс Ракетасы', en: 'Progress Rocket' }, 
+        desc: { ru: 'Символ быстрого роста знаний.', kz: 'Білімнің жылдам өсу символы.', en: 'Symbol of rapid knowledge growth.' } 
+      },
+      { 
+        id: 6, 
+        emoji: '🏆', 
+        rarity: 'epic', 
+        name: { ru: 'Алмазный Кубок', kz: 'Гауһар Кубок', en: 'Diamond Trophy' }, 
+        desc: { ru: 'Для лучших игроков платформы 100WORDS.', kz: '100WORDS платформасының үздік ойыншыларына арналған.', en: 'For the best players of 100WORDS.' } 
+      },
+      { 
+        id: 7, 
+        emoji: '👑🦊', 
+        rarity: 'legendary', 
+        name: { ru: 'Король Фокси', kz: 'Фокси Патша', en: 'King Foxy' }, 
+        desc: { ru: 'Легендарный правитель мира английского языка.', kz: 'Ағылшын тілі әлемінің аңызға айналған билеушісі.', en: 'Legendary ruler of the English language world.' } 
+      },
+      { 
+        id: 8, 
+        emoji: '💎', 
+        rarity: 'legendary', 
+        name: { ru: 'Магический Кристалл', kz: 'Сиқырлы Кристалл', en: 'Magic Crystal' }, 
+        desc: { ru: 'Редчайший артефакт мудрости.', kz: 'Даналықтың ең сирек артефактісі.', en: 'The rarest artifact of wisdom.' } 
+      },
+      { 
+        id: 9, 
+        emoji: '⚡', 
+        rarity: 'rare', 
+        name: { ru: 'Энергия Знаний', kz: 'Білім Энергиясы', en: 'Energy of Knowledge' }, 
+        desc: { ru: 'Заряжает на быстрый перевор слов.', kz: 'Сөздерді жылдам аударуға зарядтайды.', en: 'Charges you up for quick learning.' } 
+      },
+      { 
+        id: 10, 
+        emoji: '🎨', 
+        rarity: 'common', 
+        name: { ru: 'Арт Мастер', kz: 'Арт Шебері', en: 'Art Master' }, 
+        desc: { ru: 'Помогает запоминать слова через образы.', kz: 'Сөздерді бейнелер арқылы есте сақтауға көмектеседі.', en: 'Helps remember words through imagery.' } 
+      },
+      { 
+        id: 11, 
+        emoji: '🌟', 
+        rarity: 'epic', 
+        name: { ru: 'Супер Звезда', kz: 'Супер Жұлдыз', en: 'Super Star' }, 
+        desc: { ru: 'Сияет ярче всех при изучении языков.', kz: 'Тіл үйренгенде барлығынан жарқын көрінеді.', en: 'Shines brightest when learning languages.' } 
+      },
+      { 
+        id: 12, 
+        emoji: '🔥', 
+        rarity: 'legendary', 
+        name: { ru: 'Огненный Стрик', kz: 'Отты Стрик', en: 'Fire Streak' }, 
+        desc: { ru: 'Символ ежедневных побед и занятий.', kz: 'Күнделікті жеңістер мен сабақтардың символы.', en: 'Symbol of daily wins and practice.' } 
+      }
     ];
 
     const translations = {
@@ -634,6 +670,7 @@
       questions: [], memoryCards: [], flippedCards: [], matchedPairs: 0
     };
     
+    // Профиль пользователя и статистика (ник пустой по умолчанию)
     let userProfile = {
       username: localStorage.getItem('foxy_username') || '',
       avatar: localStorage.getItem('foxy_avatar') || 'IMG_6666.png',
@@ -642,24 +679,6 @@
       score: parseInt(localStorage.getItem('foxy_score')) || 0,
       inventory: JSON.parse(localStorage.getItem('foxy_inventory')) || [1]
     };
-
-    // Определение лиги по очкам
-    function getUserLeague(score) {
-      if (score >= 1000) return { name: currentLang === 'kz' ? 'Кристалды лига' : (currentLang === 'en' ? 'Crystal League' : 'Кристальная лига'), icon: '💎', color: 'bg-cyan-100 text-cyan-800 border-cyan-300' };
-      if (score >= 800) return { name: currentLang === 'kz' ? 'Алтын лига' : (currentLang === 'en' ? 'Gold League' : 'Золотая лига'), icon: '🥇', color: 'bg-yellow-100 text-yellow-800 border-yellow-300' };
-      if (score >= 400) return { name: currentLang === 'kz' ? 'Күміс лига' : (currentLang === 'en' ? 'Silver League' : 'Серебряная лига'), icon: '🥈', color: 'bg-slate-200 text-slate-800 border-slate-300' };
-      return { name: currentLang === 'kz' ? 'Қола лига' : (currentLang === 'en' ? 'Bronze League' : 'Бронзовая лига'), icon: '🥉', color: 'bg-amber-100 text-amber-800 border-amber-300' };
-    }
-
-    function updateLeagueDisplay() {
-      const league = getUserLeague(userProfile.score);
-      const badge = document.getElementById('league-badge');
-      if (badge) {
-        badge.className = `inline-flex items-center gap-2 px-5 py-2 rounded-full font-black text-sm shadow-md border-2 ${league.color}`;
-        document.getElementById('league-icon').textContent = league.icon;
-        document.getElementById('league-name').textContent = league.name;
-      }
-    }
 
     const defaultConfig = {
       site_title: 'Foxy English',
@@ -725,7 +744,6 @@
       renderDictionary();
       renderQuickWords();
       renderCardsCollection();
-      updateLeagueDisplay();
     }
 
     function showSection(section) {
@@ -756,7 +774,6 @@
       document.getElementById('acc-stat-words').textContent = userProfile.words;
       document.getElementById('acc-stat-games').textContent = userProfile.games;
       document.getElementById('acc-stat-score').textContent = userProfile.score;
-      updateLeagueDisplay();
     }
 
     function toggleAvatarPicker() {
@@ -797,7 +814,7 @@
         common: 'bg-gray-100 border-gray-300 text-gray-700',
         rare: 'bg-blue-50 border-blue-300 text-blue-600',
         epic: 'bg-purple-50 border-purple-300 text-purple-600',
-        legendary: 'bg-amber-50 border-amber-400 text-amber-700 shadow-amber-200 shadow-lg ring-2 ring-amber-400'
+        legendary: 'bg-amber-50 border-amber-400 text-amber-600 shadow-amber-200 shadow-md'
       };
 
       grid.innerHTML = allCollectibleCards.map(card => {
@@ -832,7 +849,6 @@
       }).join('');
     }
 
-    // Рандомное выпадение с разной вероятностью (обычные/редкие чаще, эпические реже, легендарные реже всего)
     function openCardPack() {
       if (userProfile.score < 50) {
         alert(currentLang === 'kz' ? 'Ұпай жеткіліксіз! (Кемінде 50 ұпай керек)' : 'Недостаточно очков! Нужно минимум 50 очков.');
@@ -841,32 +857,21 @@
       userProfile.score -= 50;
       updateStats();
 
-      // Определяем рарность по весу шансов
-      const rand = Math.random() * 100;
-      let targetRarity = 'common';
-      if (rand < 45) targetRarity = 'common';       // 45% шанс
-      else if (rand < 75) targetRarity = 'rare';    // 30% шанс
-      else if (rand < 92) targetRarity = 'epic';    // 17% шанс
-      else targetRarity = 'legendary';                // 8% шанс (настоящий редкий легендарный!)
-
-      let pool = allCollectibleCards.filter(c => c.rarity === targetRarity);
-      if (pool.length === 0) pool = allCollectibleCards;
-
-      let rewardCard = pool[Math.floor(Math.random() * pool.length)];
-
-      if (!userProfile.inventory.includes(rewardCard.id)) {
+      const lockedCards = allCollectibleCards.filter(c => !userProfile.inventory.includes(c.id));
+      let rewardCard;
+      if (lockedCards.length > 0) {
+        rewardCard = lockedCards[Math.floor(Math.random() * lockedCards.length)];
         userProfile.inventory.push(rewardCard.id);
         localStorage.setItem('foxy_inventory', JSON.stringify(userProfile.inventory));
       } else {
-        // Если такая карточка уже есть, даем бонусные очки
-        userProfile.score += 25;
+        rewardCard = allCollectibleCards[Math.floor(Math.random() * allCollectibleCards.length)];
+        userProfile.score += 20;
         updateStats();
       }
 
       renderCardsCollection();
       const cardName = rewardCard.name[currentLang] || rewardCard.name.ru;
-      const rarityText = translations[currentLang][`rarity_${rewardCard.rarity}`];
-      alert(`🎉 Поздравляем! Вам выпала карточка [${rarityText}]:\n"${cardName}" ${rewardCard.emoji}`);
+      alert(`🎉 Поздравляем! Вам выпала карточка: "${cardName}" (${rewardCard.emoji})`);
     }
 
     function renderDictionary() {
@@ -1114,12 +1119,13 @@
       container.innerHTML = `
         <div class="text-center">
           <p class="text-gray-600 mb-4 text-lg">${translations[currentLang].select_translation}</p>
-          <div translate="no" class="notranslate text-4xl font-black text-orange-600 mb-6">${word.en}</div>
-          <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
+          <div translate="no" class="notranslate text-4xl font-black text-orange-600 mb-8 bg-orange-50 p-6 rounded-2xl">${word.en.toUpperCase()}</div>
+          <div class="grid grid-cols-2 gap-4 max-w-lg mx-auto">
             ${options.map(opt => `
               <button onclick="checkAnswer('${opt.en}', '${word.en}')" 
-                class="answer-btn bg-orange-100 hover:bg-orange-200 text-orange-600 font-bold py-4 px-6 rounded-2xl text-xl transition transform hover:scale-105">
-                ${opt[currentLang] || opt.ru}
+                class="answer-btn bg-white hover:bg-orange-50 border-2 border-orange-200 hover:border-orange-400 font-bold py-4 px-6 rounded-2xl text-lg transition transform hover:scale-105">
+                <div class="text-3xl mb-2">${opt.emoji}</div>
+                <div>${opt[currentLang]}</div>
               </button>
             `).join('')}
           </div>
@@ -1128,114 +1134,117 @@
     }
 
     function renderListeningGame(word, container) {
-      renderQuizGame(word, container);
-    }
-
-    function checkAnswer(selected, correct) {
-      const buttons = document.querySelectorAll('.answer-btn');
-      buttons.forEach(btn => btn.disabled = true);
-      
-      if (selected.toLowerCase() === correct.toLowerCase()) {
-        gameState.score += 10;
-        userProfile.score += 10;
-        userProfile.words++;
-        updateStats();
-        document.getElementById('game-score').textContent = gameState.score;
-        
-        const content = document.getElementById('game-content');
-        content.insertAdjacentHTML('beforeend,', '');
-        setTimeout(() => {
-          gameState.round++;
-          showQuestion();
-        }, 600);
-      } else {
-        setTimeout(() => {
-          gameState.round++;
-          showQuestion();
-        }, 800);
-      }
-    }
-
-    function initMemoryGame() {
-      const selectedWords = [...dictionary].sort(() => Math.random() - 0.5).slice(0, 4);
-      let cards = [];
-      selectedWords.forEach((w, i) => {
-        cards.push({ id: i, text: w.en, match: i, type: 'en' });
-        cards.push({ id: i + 10, text: w[currentLang] || w.ru, match: i, type: 'trans' });
-      });
-      gameState.memoryCards = cards.sort(() => Math.random() - 0.5);
-      renderMemoryBoard();
-    }
-
-    function renderMemoryBoard() {
-      const container = document.getElementById('game-content');
-      document.getElementById('game-score').textContent = gameState.score;
-      document.getElementById('game-progress').textContent = `${gameState.matchedPairs}/${gameState.memoryCards.length / 2}`;
-      
+      const wrongWords = dictionary.filter(w => w.en !== word.en).sort(() => Math.random() - 0.5).slice(0, 3);
+      const options = [word, ...wrongWords].sort(() => Math.random() - 0.5);
       container.innerHTML = `
         <div class="text-center">
-          <p class="text-gray-600 mb-4 text-lg">${translations[currentLang].find_pairs}</p>
-          <div class="grid grid-cols-4 gap-4 max-w-lg mx-auto">
-            ${gameState.memoryCards.map((card, index) => `
-              <div onclick="flipMemoryCard(${index})" id="m-card-${index}" 
-                class="memory-card h-24 bg-orange-100 hover:bg-orange-200 rounded-2xl flex items-center justify-center font-bold text-orange-600 text-lg cursor-pointer transition transform hover:scale-105 shadow-md select-none">
-                ❓
-              </div>
+          <p class="text-gray-600 mb-4 text-lg">${translations[currentLang].game_listening}</p>
+          <div class="mb-6">
+            <button onclick="speakWord('${word.en}')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-full text-2xl transition transform hover:scale-105 shadow-lg">
+              🔊
+            </button>
+          </div>
+          <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
+            ${options.map(opt => `
+              <button translate="no" onclick="checkAnswer('${opt.en}', '${word.en}')" 
+                class="notranslate answer-btn bg-orange-100 hover:bg-orange-200 text-orange-600 font-bold py-4 px-6 rounded-2xl text-xl transition transform hover:scale-105">
+                ${opt.emoji}${opt.en}
+              </button>
             `).join('')}
           </div>
         </div>
       `;
+      speakWord(word.en);
     }
 
-    function flipMemoryCard(index) {
-      const card = gameState.memoryCards[index];
-      const el = document.getElementById(`m-card-${index}`);
-      if (gameState.flippedCards.length >= 2 || el.classList.contains('matched') || el.classList.contains('flipped')) return;
+    function initMemoryGame() {
+      const words = [...dictionary].sort(() => Math.random() - 0.5).slice(0, 8);
+      const cards = [];
+      words.forEach((word, i) => {
+        cards.push({ id: i * 2, type: 'emoji', value: word.emoji, word: word.en, matched: false });
+        cards.push({ id: i * 2 + 1, type: 'text', value: word.en, word: word.en, matched: false });
+      });
+      gameState.memoryCards = cards.sort(() => Math.random() - 0.5);
+      gameState.flippedCards = [];
+      gameState.matchedPairs = 0;
+      renderMemoryBoard();
+    }
 
-      el.textContent = card.text;
-      el.classList.add('bg-white', 'border-2', 'border-orange-400', 'flipped');
-      el.classList.remove('bg-orange-100');
-      gameState.flippedCards.push({ index, card });
+    function renderMemoryBoard() {
+      const content = document.getElementById('game-content');
+      document.getElementById('game-score').textContent = gameState.score;
+      document.getElementById('game-progress').textContent = `${gameState.matchedPairs}/${gameState.maxRounds}`;
+      content.innerHTML = `
+        <p class="text-center text-gray-600 mb-6 text-lg">${translations[currentLang].find_pairs}</p>
+        <div class="grid grid-cols-4 gap-3 max-w-lg mx-auto">
+          ${gameState.memoryCards.map(card => `
+            <div id="card-${card.id}" onclick="flipCard(${card.id})" 
+              class="memory-card h-24 sm:h-28 w-full rounded-xl cursor-pointer transition transform hover:scale-105 ${card.matched ? 'opacity-30 pointer-events-none' : ''}">
+              <div class="w-full h-full bg-orange-500 rounded-xl flex items-center justify-center ${card.flipped ? 'hidden' : ''}">
+                <span class="text-3xl text-white">🦊</span>
+              </div>
+              <div class="w-full h-full bg-white border-2 border-orange-300 rounded-xl flex items-center justify-center p-1 text-center ${card.flipped ? '' : 'hidden'}">
+                <span translate="no" class="notranslate ${card.type === 'emoji' ? 'text-4xl' : 'text-sm sm:text-base font-bold text-orange-600 leading-tight'}">${card.value}</span>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
 
-      if (gameState.flippedCards.length === 2) {
-        const [first, second] = gameState.flippedCards;
-        if (first.card.match === second.card.match && first.index !== second.index) {
-          gameState.matchedPairs++;
-          gameState.score += 20;
-          userProfile.score += 20;
-          updateStats();
-          document.getElementById('game-score').textContent = gameState.score;
-          gameState.flippedCards = [];
+    function flipCard(cardId) {
+      if (gameState.flippedCards.length >= 2) return;
+      const card = gameState.memoryCards.find(c => c.id === cardId);
+      if (!card || card.matched || card.flipped) return;
+      card.flipped = true;
+      gameState.flippedCards.push(card);
+      renderMemoryBoard();
+      if (gameState.flippedCards.length === 2) { setTimeout(checkMemoryMatch, 800); }
+    }
 
-          if (gameState.matchedPairs === gameState.memoryCards.length / 2) {
-            setTimeout(endGame, 600);
-          }
-        } else {
-          setTimeout(() => {
-            const el1 = document.getElementById(`m-card-${first.index}`);
-            const el2 = document.getElementById(`m-card-${second.index}`);
-            el1.textContent = '❓';
-            el1.classList.remove('bg-white', 'border-2', 'border-orange-400', 'flipped');
-            el1.classList.add('bg-orange-100');
-            el2.textContent = '❓';
-            el2.classList.remove('bg-white', 'border-2', 'border-orange-400', 'flipped');
-            el2.classList.add('bg-orange-100');
-            gameState.flippedCards = [];
-          }, 800);
-        }
+    function checkMemoryMatch() {
+      const [card1, card2] = gameState.flippedCards;
+      if (card1.word === card2.word) {
+        card1.matched = true; card2.matched = true;
+        gameState.matchedPairs++; gameState.score += 10;
+        showFeedback(true);
+        if (gameState.matchedPairs >= gameState.maxRounds) { setTimeout(endGame, 500); }
+      } else {
+        showFeedback(false); card1.flipped = false; card2.flipped = false;
       }
+      gameState.flippedCards = [];
+      renderMemoryBoard();
+    }
+
+    function checkAnswer(answer, correct) {
+      const isCorrect = answer.toLowerCase() === correct.toLowerCase();
+      if (isCorrect) { gameState.score += 10; showFeedback(true); userProfile.words++; } else { showFeedback(false); }
+      gameState.round++;
+      updateStats();
+      setTimeout(showQuestion, 1000);
+    }
+
+    function showFeedback(correct) {
+      const content = document.getElementById('game-content');
+      const feedback = document.createElement('div');
+      feedback.className = `fixed inset-0 flex items-center justify-center z-50 ${correct ? 'bg-green-500/30' : 'bg-red-500/30'} pointer-events-none`;
+      feedback.innerHTML = `<div class="text-6xl ${correct ? 'bounce' : 'shake'}">${correct ? '✅' : '❌'}</div>`;
+      content.appendChild(feedback);
+      setTimeout(() => feedback.remove(), 800);
     }
 
     function endGame() {
-      userProfile.games++;
+      userProfile.games++; 
+      userProfile.score += gameState.score;
       updateStats();
       const content = document.getElementById('game-content');
       content.innerHTML = `
         <div class="text-center py-8">
-          <div class="text-6xl mb-4">🏆</div>
-          <h3 class="text-3xl font-black text-orange-600 mb-2">${translations[currentLang].game_over}</h3>
-          <p class="text-gray-600 text-lg mb-6">${translations[currentLang].your_score}: <span class="font-bold text-orange-600">${gameState.score}</span></p>
-          <button onclick="startGame('${gameState.type}')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3 rounded-full transition shadow-lg">${translations[currentLang].play_again}</button>
+          <div class="text-6xl mb-4 sparkle">🎉</div>
+          <h3 class="text-3xl font-black text-orange-600 mb-4">${translations[currentLang].game_over}</h3>
+          <p class="text-xl text-gray-600 mb-2">${translations[currentLang].your_score}:</p>
+          <p class="text-5xl font-black text-orange-500 mb-8">${gameState.score}</p>
+          <button onclick="startGame('${gameState.type}')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-full text-xl transition transform hover:scale-105">🔄 ${translations[currentLang].play_again}</button>
         </div>
       `;
     }
@@ -1244,14 +1253,17 @@
       localStorage.setItem('foxy_words', userProfile.words);
       localStorage.setItem('foxy_games', userProfile.games);
       localStorage.setItem('foxy_score', userProfile.score);
-      updateLeagueDisplay();
+
+      if (currentSection === 'account') {
+        loadAccountData();
+      }
     }
 
-    window.onload = () => {
-      initSDK();
-      setLanguage('ru');
-      loadAccountData();
-    };
+    initSDK();
+    setLanguage('ru');
+    renderDictionary();
+    renderQuickWords();
+    renderCardsCollection();
   </script>
  </body>
 </html>
