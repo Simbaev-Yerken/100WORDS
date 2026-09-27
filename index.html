@@ -466,7 +466,13 @@
       type: null, score: 0, round: 0, maxRounds: 10,
       questions: [], memoryCards: [], flippedCards: [], matchedPairs: 0
     };
-    let stats = { words: 0, games: 0, score: 0 };
+    
+    // Загрузка сохранённого прогресса из localStorage или установка нулей по умолчанию
+    let stats = {
+      words: parseInt(localStorage.getItem('foxy_words')) || 0,
+      games: parseInt(localStorage.getItem('foxy_games')) || 0,
+      score: parseInt(localStorage.getItem('foxy_score')) || 0
+    };
 
     const defaultConfig = {
       site_title: 'Foxy English',
@@ -899,6 +905,7 @@
       const isCorrect = answer.toLowerCase() === correct.toLowerCase();
       if (isCorrect) { gameState.score += 10; showFeedback(true); stats.words++; } else { showFeedback(false); }
       gameState.round++;
+      updateStats(); // Автоматически сохраняем прогресс при каждом ответе
       setTimeout(showQuestion, 1000);
     }
 
@@ -913,7 +920,7 @@
 
     function endGame() {
       stats.games++; stats.score += gameState.score;
-      updateStats();
+      updateStats(); // Сохраняем после окончания игры
       const content = document.getElementById('game-content');
       content.innerHTML = `
         <div class="text-center py-8">
@@ -927,15 +934,22 @@
     }
 
     function updateStats() {
+      // Выводим цифры на экран
       document.getElementById('stat-words').textContent = stats.words;
       document.getElementById('stat-games').textContent = stats.games;
       document.getElementById('stat-score').textContent = stats.score;
+
+      // Сохраняем в localStorage устройства пользователя
+      localStorage.setItem('foxy_words', stats.words);
+      localStorage.setItem('foxy_games', stats.games);
+      localStorage.setItem('foxy_score', stats.score);
     }
 
     initSDK();
     setLanguage('ru');
     renderDictionary();
     renderQuickWords();
+    updateStats(); // Вызываем сразу при загрузке страницы, чтобы отобразить сохранённые данные
   </script>
  </body>
 </html>
