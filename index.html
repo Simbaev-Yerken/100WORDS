@@ -276,7 +276,7 @@
 
      <div class="mb-4 flex justify-between items-center">
       <h3 class="text-xl font-bold text-gray-700" data-text="my_collection">Моя коллекция</h3>
-      <span id="collection-counter" class="bg-orange-100 text-orange-600 font-bold px-4 py-1 rounded-full text-sm">0 / 12</span>
+      <span id="collection-counter" class="bg-orange-100 text-orange-600 font-bold px-4 py-1 rounded-full text-sm">0 / 40</span>
      </div>
 
      <div id="cards-grid" class="grid grid-cols-2 md:grid-cols-4 gap-6"></div>
@@ -287,6 +287,15 @@
      <div class="max-w-2xl mx-auto bg-white rounded-3xl p-8 card-shadow">
       <h2 class="text-3xl font-black text-orange-600 mb-6 text-center" data-text="account_title">👤 Твой аккаунт</h2>
       
+      <!-- Линия лиги -->
+      <div id="user-league-badge" class="bg-gradient-to-r from-amber-700 to-amber-900 text-white rounded-2xl p-4 mb-6 text-center shadow-md flex items-center justify-center gap-3">
+        <span class="text-3xl" id="league-icon">🥉</span>
+        <div>
+          <div class="text-xs uppercase font-bold opacity-80" data-text="current_league">Твоя лига</div>
+          <div class="text-xl font-black" id="league-name">Бронзовая лига</div>
+        </div>
+      </div>
+
       <!-- Настройка профиля (Ник и Аватарка) -->
       <div class="bg-orange-50 rounded-2xl p-6 mb-8 text-center">
        <div class="relative w-28 h-28 mx-auto mb-4 cursor-pointer group" onclick="toggleAvatarPicker()">
@@ -454,92 +463,55 @@
       { en: 'learn', ru: 'учиться', kz: 'үйрену', emoji: '📚', category: 'actions' }
     ];
 
-    // Расширенные коллекционные карточки с поддержкой переводов
+    // Ровно 40 коллекционных карточек со строгим распределением редкости
     const allCollectibleCards = [
-      { 
-        id: 1, 
-        emoji: '🦊', 
-        rarity: 'common', 
-        name: { ru: 'Фокси Студент', kz: 'Фокси Студент', en: 'Student Foxy' }, 
-        desc: { ru: 'Обычный маскот, любит учить слова.', kz: 'Қарапайым маскот, сөз жаттағанды жақсы көреді.', en: 'Ordinary mascot, loves learning words.' } 
-      },
-      { 
-        id: 2, 
-        emoji: '🐱', 
-        rarity: 'common', 
-        name: { ru: 'Кот Ученый', kz: 'Ғалым Мысық', en: 'Sci-Cat' }, 
-        desc: { ru: 'Знает ответы на все грамматические вопросы.', kz: 'Барлық грамматикалық сұрақтардың жауабын біледі.', en: 'Knows answers to all grammar questions.' } 
-      },
-      { 
-        id: 3, 
-        emoji: '⭐', 
-        rarity: 'rare', 
-        name: { ru: 'Золотая Звезда', kz: 'Алтын Жұлдыз', en: 'Golden Star' }, 
-        desc: { ru: 'Награда за успешную игру в викторинах.', kz: 'Викториналардағы табысты ойын үшін марапат.', en: 'Reward for successful quiz games.' } 
-      },
-      { 
-        id: 4, 
-        emoji: '📖', 
-        rarity: 'rare', 
-        name: { ru: 'Супер Книга', kz: 'Супер Кітап', en: 'Super Book' }, 
-        desc: { ru: 'Сборник из 100 важных английских слов.', kz: '100 маңызды ағылшын сөзінің жинағы.', en: 'A collection of 100 important English words.' } 
-      },
-      { 
-        id: 5, 
-        emoji: '🚀', 
-        rarity: 'epic', 
-        name: { ru: 'Ракета Прогресса', kz: 'Прогресс Ракетасы', en: 'Progress Rocket' }, 
-        desc: { ru: 'Символ быстрого роста знаний.', kz: 'Білімнің жылдам өсу символы.', en: 'Symbol of rapid knowledge growth.' } 
-      },
-      { 
-        id: 6, 
-        emoji: '🏆', 
-        rarity: 'epic', 
-        name: { ru: 'Алмазный Кубок', kz: 'Гауһар Кубок', en: 'Diamond Trophy' }, 
-        desc: { ru: 'Для лучших игроков платформы 100WORDS.', kz: '100WORDS платформасының үздік ойыншыларына арналған.', en: 'For the best players of 100WORDS.' } 
-      },
-      { 
-        id: 7, 
-        emoji: '👑🦊', 
-        rarity: 'legendary', 
-        name: { ru: 'Король Фокси', kz: 'Фокси Патша', en: 'King Foxy' }, 
-        desc: { ru: 'Легендарный правитель мира английского языка.', kz: 'Ағылшын тілі әлемінің аңызға айналған билеушісі.', en: 'Legendary ruler of the English language world.' } 
-      },
-      { 
-        id: 8, 
-        emoji: '💎', 
-        rarity: 'legendary', 
-        name: { ru: 'Магический Кристалл', kz: 'Сиқырлы Кристалл', en: 'Magic Crystal' }, 
-        desc: { ru: 'Редчайший артефакт мудрости.', kz: 'Даналықтың ең сирек артефактісі.', en: 'The rarest artifact of wisdom.' } 
-      },
-      { 
-        id: 9, 
-        emoji: '⚡', 
-        rarity: 'rare', 
-        name: { ru: 'Энергия Знаний', kz: 'Білім Энергиясы', en: 'Energy of Knowledge' }, 
-        desc: { ru: 'Заряжает на быстрый перевор слов.', kz: 'Сөздерді жылдам аударуға зарядтайды.', en: 'Charges you up for quick learning.' } 
-      },
-      { 
-        id: 10, 
-        emoji: '🎨', 
-        rarity: 'common', 
-        name: { ru: 'Арт Мастер', kz: 'Арт Шебері', en: 'Art Master' }, 
-        desc: { ru: 'Помогает запоминать слова через образы.', kz: 'Сөздерді бейнелер арқылы есте сақтауға көмектеседі.', en: 'Helps remember words through imagery.' } 
-      },
-      { 
-        id: 11, 
-        emoji: '🌟', 
-        rarity: 'epic', 
-        name: { ru: 'Супер Звезда', kz: 'Супер Жұлдыз', en: 'Super Star' }, 
-        desc: { ru: 'Сияет ярче всех при изучении языков.', kz: 'Тіл үйренгенде барлығынан жарқын көрінеді.', en: 'Shines brightest when learning languages.' } 
-      },
-      { 
-        id: 12, 
-        emoji: '🔥', 
-        rarity: 'legendary', 
-        name: { ru: 'Огненный Стрик', kz: 'Отты Стрик', en: 'Fire Streak' }, 
-        desc: { ru: 'Символ ежедневных побед и занятий.', kz: 'Күнделікті жеңістер мен сабақтардың символы.', en: 'Symbol of daily wins and practice.' } 
-      }
+      // Обычные (Common) - много
+      { id: 1, emoji: '🦊', rarity: 'common', name: { ru: 'Фокси Студент', kz: 'Фокси Студент', en: 'Student Foxy' }, desc: { ru: 'Обычный маскот, любит учить слова.', kz: 'Қарапайым маскот, сөз жаттағанды жақсы көреді.', en: 'Ordinary mascot, loves learning words.' } },
+      { id: 2, emoji: '🐱', rarity: 'common', name: { ru: 'Кот Ученый', kz: 'Ғалым Мысық', en: 'Sci-Cat' }, desc: { ru: 'Знает ответы на все грамматические вопросы.', kz: 'Барлық грамматикалық сұрақтардың жауабын біледі.', en: 'Knows answers to all grammar questions.' } },
+      { id: 3, emoji: '🎨', rarity: 'common', name: { ru: 'Арт Мастер', kz: 'Арт Шебері', en: 'Art Master' }, desc: { ru: 'Помогает запоминать слова через образы.', kz: 'Сөздерді бейнелер арқылы есте сақтауға көмектеседі.', en: 'Helps remember words through imagery.' } },
+      { id: 4, emoji: '✏️', rarity: 'common', name: { ru: 'Карандаш', kz: 'Қарындаш', en: 'Pencil' }, desc: { ru: 'Инструмент для записи новых слов.', kz: 'Жаңа сөздерді жазуға арналған құрал.', en: 'Tool for writing new words.' } },
+      { id: 5, emoji: '🎒', rarity: 'common', name: { ru: 'Школьный Портфель', kz: 'Мектеп Портфелі', en: 'School Backpack' }, desc: { ru: 'Всегда готов к уроку английского.', kz: 'Әрқашан ағылшын сабағына дайын.', en: 'Always ready for an English lesson.' } },
+      { id: 6, emoji: '🍎', rarity: 'common', name: { ru: 'Школьное Яблоко', kz: 'Мектеп Алмасы', en: 'School Apple' }, desc: { ru: 'Полезный перекус на перемене.', kz: 'Үзілістегі пайдалы тағам.', en: 'Healthy snack during a break.' } },
+      { id: 7, emoji: '📓', rarity: 'common', name: { ru: 'Блокнот Словарный', kz: 'Сөздік Блокнот', en: 'Vocabulary Notebook' }, desc: { ru: 'Сюда записывают новые переводы.', kz: 'Мұнда жаңа аудармалар жазылады.', en: 'New translations are written here.' } },
+      { id: 8, emoji: '☕', rarity: 'common', name: { ru: 'Утренний Чай', kz: 'Таңғы Шай', en: 'Morning Tea' }, desc: 'Бодрость для утренних занятий.', desc: { ru: 'Бодрость для утренних занятий.', kz: 'Таңғы сабақтарға сергектік.', en: 'Energy for morning studies.' } },
+      { id: 9, emoji: '🕒', rarity: 'common', name: { ru: 'Часы Ученика', kz: 'Оқушы Сағаты', en: 'Student Clock' }, desc: { ru: 'Помогают не опаздывать на уроки.', kz: 'Сабаққа кешікпеуге көмектеседі.', en: 'Helps not to be late for classes.' } },
+      { id: 10, emoji: '🌱', rarity: 'common', name: { ru: 'Росток Знаний', kz: 'Білім Өскіні', en: 'Knowledge Sprout' }, desc: { ru: 'Первый шаг в изучении языков.', kz: 'Тіл үйренудегі бірінші қадам.', en: 'First step in language learning.' } },
+      { id: 11, emoji: '📌', rarity: 'common', name: { ru: 'Закладка', kz: 'Белгіше', en: 'Bookmark' }, desc: { ru: 'Чтобы не потерять нужную страницу.', kz: 'Қажетті бетті жоғалтпау үшін.', en: 'To keep track of your page.' } },
+      { id: 12, emoji: '🎧', rarity: 'common', name: { ru: 'Наушники', kz: 'Құлаққап', en: 'Headphones' }, desc: { ru: 'Для прослушивания английской речи.', kz: 'Ағылшын тілін тыңдауға арналған.', en: 'For listening to English speech.' } },
+      { id: 13, emoji: '⚽', rarity: 'common', name: { ru: 'Мяч Перерыва', kz: 'Үзіліс Добы', en: 'Break Ball' }, desc: { ru: 'Активный отдых между заданиями.', kz: 'Тапсырмалар арасындағы белсенді демалыс.', en: 'Active rest between tasks.' } },
+      { id: 14, emoji: '💡', rarity: 'common', name: { ru: 'Идея', kz: 'Идея', en: 'Idea' }, desc: { ru: 'Момент озарения при решении теста.', kz: 'Тестті шешу кезіндегі сәтті ой.', en: 'A moment of insight during a test.' } },
+      { id: 15, emoji: '🚲', rarity: 'common', name: { ru: 'Велосипед Школьника', kz: 'Оқушы Велосипеді', en: 'School Bike' }, desc: { ru: 'Быстрый путь до школы.', kz: داعش. en: 'Fast way to school.' } },
+
+      // Редкие (Rare) - среднее количество
+      { id: 16, emoji: '⭐', rarity: 'rare', name: { ru: 'Золотая Звезда', kz: 'Алтын Жұлдыз', en: 'Golden Star' }, desc: { ru: 'Награда за успешную игру в викторинах.', kz: 'Викториналардағы табысты ойын үшін марапат.', en: 'Reward for successful quiz games.' } },
+      { id: 17, emoji: '📖', rarity: 'rare', name: { ru: 'Супер Книга', kz: 'Супер Кітап', en: 'Super Book' }, desc: { ru: 'Сборник из 100 важных английских слов.', kz: '100 маңызды ағылшын сөзінің жинағы.', en: 'A collection of 100 important English words.' } },
+      { id: 18, emoji: '⚡', rarity: 'rare', name: { ru: 'Энергия Знаний', kz: 'Білім Энергиясы', en: 'Energy of Knowledge' }, desc: { ru: 'Заряжает на быстрый перевод слов.', kz: 'Сөздерді жылдам аударуға зарядтайды.', en: 'Charges you up for quick learning.' } },
+      { id: 19, emoji: '🦉', rarity: 'rare', name: { ru: 'Мудрая Сова', kz: 'Данышпан Үкі', en: 'Wise Owl' }, desc: { ru: 'Символ глубоких знаний и мудрости.', kz: 'Терең білім мен даналықтың символы.', en: 'Symbol of deep knowledge and wisdom.' } },
+      { id: 20, emoji: '🔍', rarity: 'rare', name: { ru: 'Лупа Лингвиста', kz: 'Лингвист Лупасы', en: 'Linguist Magnifier' }, desc: { ru: 'Помогает находить скрытые правила.', kz: 'Жасырын ережелерді табуға көмектеседі.', en: 'Helps find hidden rules.' } },
+      { id: 21, emoji: '🎯', rarity: 'rare', name: { ru: 'Точный Ответ', kz: 'Дұрыс Жауап', en: 'Bullseye' }, desc: { ru: 'Попадание прямо в цель без ошибок.', kz: 'Қатесіз тура нысанаға тию.', en: 'Hitting the target without errors.' } },
+      { id: 22, emoji: '🧩', rarity: 'rare', name: { ru: 'Пазл Грамматики', kz: 'Грамматика Пазлы', en: 'Grammar Puzzle' }, desc: { ru: 'Складывает правила в единую картину.', kz: 'Ережелерді бір тұтас суретке жинайды.', en: 'Puts rules into a single picture.' } },
+      { id: 23, emoji: '🏅', rarity: 'rare', name: { ru: 'Медаль Усердия', kz: 'Еңбек Медалі', en: 'Diligence Medal' }, desc: { ru: 'За регулярные ежедневные тренировки.', kz: 'Тұрақты күнделікті жаттығулар үшін.', en: 'For regular daily training.' } },
+      { id: 24, emoji: '🧪', rarity: 'rare', name: { ru: 'Эликсир Памяти', kz: 'Жады Эликсирі', en: 'Memory Elixir' }, desc: { ru: 'Улучшает запоминание новых слов в 2 раза.', kz: 'Жаңа сөздерді есте сақтауды 2 есе жақсартады.', en: 'Improves memory for new words.' } },
+      { id: 25, emoji: '🛡️', rarity: 'rare', name: { ru: 'Щит Знаний', kz: 'Білім Қалқаны', en: 'Shield of Knowledge' }, desc: { ru: 'Защищает от забывания изученного.', kz: 'Үйренгенді ұмытудан қорғайды.', en: 'Protects what you have learned.' } },
+
+      // Эпические (Epic) - меньше
+      { id: 26, emoji: '🚀', rarity: 'epic', name: { ru: 'Ракета Прогресса', kz: 'Прогресс Ракетасы', en: 'Progress Rocket' }, desc: { ru: 'Символ быстрого роста знаний.', kz: 'Білімнің жылдам өсу символы.', en: 'Symbol of rapid knowledge growth.' } },
+      { id: 27, emoji: '🏆', rarity: 'epic', name: { ru: 'Алмазный Кубок', kz: 'Гауһар Кубок', en: 'Diamond Trophy' }, desc: { ru: 'Для лучших игроков платформы 100WORDS.', kz: '100WORDS платформасының үздік ойыншыларына арналған.', en: 'For the best players of 100WORDS.' } },
+      { id: 28, emoji: '🌟', rarity: 'epic', name: { ru: 'Супер Звезда', kz: 'Супер Жұлдыз', en: 'Super Star' }, desc: { ru: 'Сияет ярче всех при изучении языков.', kz: 'Тіл үйренгенде барлығынан жарқын көрінеді.', en: 'Shines brightest when learning languages.' } },
+      { id: 29, emoji: '🔮', rarity: 'epic', name: { ru: 'Шар Предсказаний', kz: 'Болжау Шарлары', en: 'Crystal Ball' }, desc: { ru: 'Предсказывает легкие вопросы в тестах.', kz: 'Тесттердегі жеңіл сұрақтарды болжайды.', en: 'Predicts easy questions in tests.' } },
+      { id: 30, emoji: '🐉', rarity: 'epic', name: { ru: 'Дракон Словаря', kz: 'Сөздік Айдаһары', en: 'Dictionary Dragon' }, desc: { ru: 'Охраняет все 100 слов платформы.', kz: 'Платформаның барлық 100 сөзін қорғайды.', en: 'Guards all 100 words of the platform.' } },
+      { id: 31, emoji: '⚔️', rarity: 'epic', name: { ru: 'Меч Словарных Битв', kz: 'Сөздік Шайқастар Қылышы', en: 'Word Battle Sword' }, desc: { ru: 'Помогает побеждать в любых викторинах.', kz: 'Кез келген викторинада жеңіске жетуге көмектеседі.', en: 'Helps win any quiz.' } },
+      { id: 32, emoji: '📜', rarity: 'epic', name: { ru: 'Древний Манускрипт', kz: 'Көне Қолжазба', en: 'Ancient Manuscript' }, desc: { ru: 'Хранит секреты древней грамматики.', kz: 'Көне грамматиканың сырларын сақтайды.', en: 'Holds secrets of ancient grammar.' } },
+      { id: 33, emoji: '⚡👑', rarity: 'epic', name: { ru: 'Громовержец', kz: 'Найзағай Жаршысы', en: 'Thunderlord' }, desc: { ru: 'Мощь молнии в каждом правильном ответе.', kz: 'Әрбір дұрыс жауапта найзағай күші бар.', en: 'Lightning power in every correct answer.' } },
+      { id: 34, emoji: '🌌', rarity: 'epic', name: { ru: 'Космический Разум', kz: 'Ғарыштық Сана', en: 'Cosmic Mind' }, desc: { ru: 'Масштабное мышление и понимание языка.', kz: 'Тілді ауқымды түсіну және қабылдау.', en: 'Massive understanding of language.' } },
+
+      // Легендарные (Legendary) - самые редкие (выпадают реже всего)
+      { id: 35, emoji: '👑🦊', rarity: 'legendary', name: { ru: 'Король Фокси', kz: 'Фокси Патша', en: 'King Foxy' }, desc: { ru: 'Легендарный правитель мира английского языка.', kz: 'Ағылшын тілі әлемінің аңызға айналған билеушісі.', en: 'Legendary ruler of the English language world.' } },
+      { id: 36, emoji: '💎', rarity: 'legendary', name: { ru: 'Магический Кристалл', kz: 'Сиқырлы Кристалл', en: 'Magic Crystal' }, desc: { ru: 'Редчайший артефакт мудрости.', kz: 'Даналықтың ең сирек артефактісі.', en: 'The rarest artifact of wisdom.' } },
+      { id: 37, emoji: '🔥', rarity: 'legendary', name: { ru: 'Огненный Стрик', kz: 'Отты Стрик', en: 'Fire Streak' }, desc: { ru: 'Символ ежедневных побед и занятий.', kz: 'Күнделікті жеңістер мен сабақтардың символы.', en: 'Symbol of daily wins and practice.' } },
+      { id: 38, emoji: '🦄', rarity: 'legendary', name: { ru: 'Звездный Единорог', kz: 'Жұлдызды Мүйізтұяқ', en: 'Stellar Unicorn' }, desc: { ru: 'Воплощение невероятной удачи и гениальности.', kz: 'Керемет сәттілік пен генийлік көрінісі.', en: 'Embodiment of incredible luck and genius.' } },
+      { id: 39, emoji: 'phoenix', rarity: 'legendary', emoji: '🦅✨', name: { ru: 'Феникс Мудрости', kz: 'Даналық Фениксі', en: 'Phoenix of Wisdom' }, desc: { ru: 'Воскрешает любые знания мгновенно.', kz: 'Кез келген білімді лезде қалпына келтіреді.', en: 'Instantly revives any knowledge.' } },
+      { id: 40, emoji: '🌟💎', rarity: 'legendary', name: { ru: 'Абсолют 100WORDS', kz: 'Абсолют 100WORDS', en: 'Absolute 100WORDS' }, desc: { ru: 'Высшая награда для абсолютного чемпиона платформы.', kz: 'Платформаның абсолютті чемпионы үшін жоғары марапат.', en: 'Ultimate reward for the platform champion.' } }
     ];
 
     const translations = {
@@ -574,13 +546,15 @@
         open_pack_btn: '🎁 Открыть пак (50 🪙)',
         my_collection: 'Моя коллекция',
         account_title: '👤 Твой аккаунт',
+        current_league: 'Твоя лига',
         select_avatar: 'Выбери аватарку:',
         nickname_label: 'Твой никнейм:',
         save_btn: 'Сохранить',
         rating_stats_title: '🏆 Твоя статистика и рейтинг',
         words_learned: 'слов изучено', games_played: 'игр сыграно', total_points: 'всего очков',
         reset_btn: 'Сбросить прогресс',
-        rarity_common: 'Обычная', rarity_rare: 'Редкая', rarity_epic: 'Эпическая', rarity_legendary: 'Легендарная'
+        rarity_common: 'Обычная', rarity_rare: 'Редкая', rarity_epic: 'Эпическая', rarity_legendary: 'Легендарная',
+        league_novice: 'Новичок', league_bronze: 'Бронзовая лига', league_silver: 'Серебряная лига', league_gold: 'Золотая лига', league_crystal: 'Кристальная лига'
       },
       kz: {
         home: 'Басты', games: 'Ойындар', dictionary: 'Сөздік', translator: 'Аудармашы', cards_nav: 'Коллекция', account_nav: 'Аккаунт',
@@ -613,13 +587,15 @@
         open_pack_btn: '🎁 Пак ашу (50 🪙)',
         my_collection: 'Менің жинағым',
         account_title: '👤 Сіздің аккаунт',
+        current_league: 'Сіздің лигаңыз',
         select_avatar: 'Аватар таңдаңыз:',
         nickname_label: 'Лақап атыңыз (Ник):',
         save_btn: 'Сақтау',
         rating_stats_title: '🏆 Статистика мен рейтинг',
         words_learned: 'сөз үйренілді', games_played: 'ойын ойналды', total_points: 'барлық ұпай',
         reset_btn: 'Прогресті қалпына келтіру',
-        rarity_common: 'Қарапайым', rarity_rare: 'Сирек', rarity_epic: 'Эпикалық', rarity_legendary: 'Аңызға айналған'
+        rarity_common: 'Қарапайым', rarity_rare: 'Сирек', rarity_epic: 'Эпикалық', rarity_legendary: 'Аңызға айналған',
+        league_novice: 'Жаңадан бастаушы', league_bronze: 'Бронза лигасы', league_silver: 'Күміс лига', league_gold: 'Алтын лига', league_crystal: 'Кристалл лига'
       },
       en: {
         home: 'Home', games: 'Games', dictionary: 'Dictionary', translator: 'Translator', cards_nav: 'Collection', account_nav: 'Account',
@@ -652,13 +628,15 @@
         open_pack_btn: '🎁 Open Pack (50 🪙)',
         my_collection: 'My Collection',
         account_title: '👤 Your Account',
+        current_league: 'Your League',
         select_avatar: 'Select avatar:',
         nickname_label: 'Nickname:',
         save_btn: 'Save',
         rating_stats_title: '🏆 Statistics & Rating',
         words_learned: 'words learned', games_played: 'games played', total_points: 'total points',
         reset_btn: 'Reset progress',
-        rarity_common: 'Common', rarity_rare: 'Rare', rarity_epic: 'Epic', rarity_legendary: 'Legendary'
+        rarity_common: 'Common', rarity_rare: 'Rare', rarity_epic: 'Epic', rarity_legendary: 'Legendary',
+        league_novice: 'Novice', league_bronze: 'Bronze League', league_silver: 'Silver League', league_gold: 'Gold League', league_crystal: 'Crystal League'
       }
     };
 
@@ -744,6 +722,7 @@
       renderDictionary();
       renderQuickWords();
       renderCardsCollection();
+      updateLeagueDisplay();
     }
 
     function showSection(section) {
@@ -767,6 +746,33 @@
       if (section === 'games') exitGame();
     }
 
+    function getLeagueInfo(score) {
+      if (score >= 1000) {
+        return { nameKey: 'league_crystal', icon: '💎', bgClass: 'bg-gradient-to-r from-cyan-600 to-blue-700 text-white' };
+      } else if (score >= 800) {
+        return { nameKey: 'league_gold', icon: '🥇', bgClass: 'bg-gradient-to-r from-amber-500 to-yellow-600 text-white' };
+      } else if (score >= 400) {
+        return { nameKey: 'league_silver', icon: '🥈', bgClass: 'bg-gradient-to-r from-slate-400 to-gray-500 text-white' };
+      } else if (score >= 100) {
+        return { nameKey: 'league_bronze', icon: '🥉', bgClass: 'bg-gradient-to-r from-amber-700 to-amber-900 text-white' };
+      } else {
+        return { nameKey: 'league_novice', icon: '🌱', bgClass: 'bg-gradient-to-r from-orange-400 to-orange-600 text-white' };
+      }
+    }
+
+    function updateLeagueDisplay() {
+      const league = getLeagueInfo(userProfile.score);
+      const badge = document.getElementById('user-league-badge');
+      const icon = document.getElementById('league-icon');
+      const nameEl = document.getElementById('league-name');
+      
+      if (badge && icon && nameEl) {
+        badge.className = `rounded-2xl p-4 mb-6 text-center shadow-md flex items-center justify-center gap-3 ${league.bgClass}`;
+        icon.textContent = league.icon;
+        nameEl.textContent = translations[currentLang][league.nameKey] || league.nameKey;
+      }
+    }
+
     function loadAccountData() {
       document.getElementById('username-input').value = userProfile.username;
       document.getElementById('current-avatar').src = userProfile.avatar;
@@ -774,6 +780,7 @@
       document.getElementById('acc-stat-words').textContent = userProfile.words;
       document.getElementById('acc-stat-games').textContent = userProfile.games;
       document.getElementById('acc-stat-score').textContent = userProfile.score;
+      updateLeagueDisplay();
     }
 
     function toggleAvatarPicker() {
@@ -849,6 +856,28 @@
       }).join('');
     }
 
+    // Взвешенный рандомизатор для выпадения карточек по редкости:
+    // Обычные: ~55%, Редкие: ~28%, Эпические: ~13%, Легендарные: ~4%
+    function getRandomCardByRarity(lockedCards) {
+      const rand = Math.random() * 100;
+      let targetRarity = 'common';
+      if (rand < 4) {
+        targetRarity = 'legendary';
+      } else if (rand < 17) {
+        targetRarity = 'epic';
+      } else if (rand < 45) {
+        targetRarity = 'rare';
+      } else {
+        targetRarity = 'common';
+      }
+
+      let pool = lockedCards.filter(c => c.rarity === targetRarity);
+      if (pool.length === 0) {
+        pool = lockedCards; // если все этого типа собраны, берем из оставшихся
+      }
+      return pool[Math.floor(Math.random() * pool.length)];
+    }
+
     function openCardPack() {
       if (userProfile.score < 50) {
         alert(currentLang === 'kz' ? 'Ұпай жеткіліксіз! (Кемінде 50 ұпай керек)' : 'Недостаточно очков! Нужно минимум 50 очков.');
@@ -860,7 +889,7 @@
       const lockedCards = allCollectibleCards.filter(c => !userProfile.inventory.includes(c.id));
       let rewardCard;
       if (lockedCards.length > 0) {
-        rewardCard = lockedCards[Math.floor(Math.random() * lockedCards.length)];
+        rewardCard = getRandomCardByRarity(lockedCards);
         userProfile.inventory.push(rewardCard.id);
         localStorage.setItem('foxy_inventory', JSON.stringify(userProfile.inventory));
       } else {
@@ -1257,6 +1286,7 @@
       if (currentSection === 'account') {
         loadAccountData();
       }
+      updateLeagueDisplay();
     }
 
     initSDK();
@@ -1264,6 +1294,7 @@
     renderDictionary();
     renderQuickWords();
     renderCardsCollection();
+    updateLeagueDisplay();
   </script>
  </body>
 </html>
