@@ -1014,11 +1014,12 @@
 
     function renderSpellingGame(word, container) {
       const letters = word.en.split('').sort(() => Math.random() - 0.5);
+      const translatedWord = word[currentLang] || word.ru; // Перевод на выбранном языке (или русский по умолчанию)
       container.innerHTML = `
         <div class="text-center">
           <p class="text-gray-600 mb-4 text-lg">${translations[currentLang].build_word}</p>
           <div class="text-6xl mb-4">${word.emoji}</div>
-          <div translate="no" class="notranslate text-xl text-gray-500 mb-4">${word.en}</div>
+          <div class="text-xl font-bold text-orange-600 mb-4">${translatedWord}</div>
           <div id="spelling-answer" translate="no" class="notranslate flex justify-center gap-2 mb-6 min-h-16 p-4 bg-orange-50 rounded-2xl"></div>
           <div id="spelling-letters" translate="no" class="notranslate flex justify-center gap-2 flex-wrap mb-6">
             ${letters.map((letter, i) => `
